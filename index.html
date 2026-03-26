@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz 5 meses 💙</title>
+  <!-- Fuente Oswald de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0; 
+      font-family: 'Oswald', sans-serif;
+      color: white; 
+      background: url('img/ACTION.png') no-repeat center center fixed;
+      background-size: cover; /* Asegura fondo completo【21†L307-L312】 */
+      text-align: center;
+    }
+    h1 { margin: 0; color: #26b100; } /* Encabezados verdes */
+    p  { margin: 0.5em 0; }
+
+    /* Pantalla inicial con sobre */
+    #inicio {
+      height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+    }
+    /* Sobre animado */
+    .sobre {
+      width: 120px; height: 80px; background: #26b100;
+      position: relative; border-radius: 8px; cursor: pointer;
+      transition: transform 0.5s;
+    }
+    .sobre:before {
+      content: "";
+      position: absolute;
+      top: -40px; left: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 40px solid #26b100;
+    }
+    .sobre.abierto {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    /* Segunda etapa: taza y texto */
+    #fase2 { display: none; padding: 20px; animation: fadeIn 1s ease; }
+    /* Animación fadeIn */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    #fase2 img {
+      width: 80%; max-width: 300px; border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    #fase2 p { font-size: 1.2em; }
+
+    /* Contenido final: collage de fotos */
+    #contenido { display: none; padding: 20px; }
+    #contenido h1 { margin-top: 0; }
+    .collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .collage img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .collage img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    /* Frases románticas */
+    .frase { margin-top: 15px; font-size: 1.2em; line-height: 1.4; }
+
+    /* Botón estilo Breaking Bad: blanco y verde */
+    button {
+      padding: 12px 20px; font-size: 1em; 
+      color: #26b100; background: white;
+      border: none; border-radius: 5px;
+      cursor: pointer; transition: transform 0.2s;
+    }
+    button:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+
+<div id="inicio">
+  <!-- Sobre que se anima al tocar -->
+  <div class="sobre" onclick="abrirSobre()"></div>
+</div>
+
+<div id="fase2">
+  <!-- Taza y texto "Tú y yo Jeswalt.jpg" -->
+  <img src="img/taza.jpeg" alt="Taza de café con amor">
+  <p>Tú y yo ❤️</p>
+  <img src="img/Jeswalt.jpg" alt="Jeswalt">
+  <p>Estas son pequeñas muestras de nuestro amor a distancia.</p>
+  <!-- Botón para continuar -->
+  <button onclick="continuar()">Ver más 📷</button>
+</div>
+
+<div id="contenido">
+  <h1>Feliz 5 meses 💙</h1>
+  <!-- Collage de imágenes -->
+  <div class="collage">
+    <img src="img/dibujo.jpg" alt="Nuestro dibujo">
+    <img src="img/Foca.jpg" alt="Foca adorable">
+    <img src="img/sky.jpg" alt="Hermoso cielo">
+    <img src="img/Discord.jpg" alt="Captura de Discord">
+    <img src="img/sky1.jpg" alt="Otro cielo">
+    <img src="img/Foca1.jpg" alt="Otra foca">
+    <img src="img/sky2.jpg" alt="Cielo nocturno">
+    <img src="img/sky.jpeg" alt="Cielo colorido">
+  </div>
+  <!-- Mensajes personales -->
+  <div class="frase">
+    <p>Gracias por estos 5 meses tan bonitos 💙</p>
+    <p>Cada llamada, risa y llanto a tu lado vale la pena. Eres mi mundo.</p>
+    <p>Te amo mucho, ¡vamos por más meses juntos!</p>
+  </div>
+  <!-- Botón para reproducir música -->
+  <button onclick="playMusic()">Reproducir canción 🎵</button>
+  <audio id="musica">
+    <!-- Se puede agregar <source src="img/musica.ogg" type="audio/ogg"> para fallback -->
+    <source src="img/musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio. :( 
+  </audio>
+</div>
+
+<script>
+  // Al hacer clic en el sobre
+  function abrirSobre() {
+    document.querySelector(".sobre").classList.add("abierto");
+    setTimeout(() => {
+      document.getElementById("inicio").style.display = "none";
+      document.getElementById("fase2").style.display = "block";
+    }, 800);
+  }
+  // Al pulsar el botón "Ver más"
+  function continuar() {
+    document.getElementById("fase2").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+  }
+  // Reproducir música al hacer clic
+  function playMusic() {
+    document.getElementById("musica").play();
+  }
+</script>
+
+</body>
+</html>
