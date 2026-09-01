@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a1730">
+<title>10 meses — para Kath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0a1730;
+    --navy-mid:#132a52;
+    --blue-sky:#3d6fb4;
+    --blue-pale:#a9d2f5;
+    --gold:#ffd98a;
+    --gold-soft:#fff0c2;
+    --cream:#f8f4ea;
+    --ink:#1c2942;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:var(--navy-deep);
+    overflow:hidden;
+    touch-action:manipulation;
+    -webkit-user-select:none; user-select:none;
+  }
+
+  body{ font-family:'Quicksand',system-ui,sans-serif; color:var(--cream); }
+
+  #app{
+    position:relative; width:100%; height:100dvh; overflow:hidden;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% -10%, var(--navy-mid) 0%, transparent 60%),
+      linear-gradient(180deg, var(--navy-deep) 0%, #0d1e3d 55%, #0a1730 100%);
+  }
+
+  /* ---------- stars ---------- */
+  #sky{ position:absolute; inset:0; pointer-events:none; }
+  .star{
+    position:absolute; width:2px; height:2px;
+    background:var(--blue-pale); border-radius:50%; opacity:.7;
+    animation:twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:.15; transform:scale(1); }
+    50%{ opacity:.9; transform:scale(1.6); }
+  }
+
+  /* ---------- scenes ---------- */
+  .scene{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center;
+    padding:6vh 5vw 4vh;
+    opacity:0; visibility:hidden; transform:translateY(12px);
+    transition:opacity .6s ease, transform .6s ease, visibility 0s .6s;
+  }
+  .scene.active{
+    opacity:1; visibility:visible; transform:translateY(0);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+
+  .level-label{ font-size:.8rem; color:var(--blue-pale); opacity:.85; margin:0 0 .3em; }
+
+  /* ---------- title scene ---------- */
+  #scene-title{ justify-content:center; text-align:center; }
+  .title{
+    font-family:'Cormorant Garamond', serif; font-weight:600;
+    font-size:clamp(2.6rem, 13vw, 4rem); line-height:1; margin:0 0 .4em;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 18px rgba(255,217,138,.25));
+  }
+  .subtitle{ font-size:1rem; color:var(--blue-pale); margin:0 0 3em; max-width:24em; line-height:1.5; }
+
+  .btn-glow{
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:1rem; letter-spacing:.02em;
+    color:var(--navy-deep);
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    border:none; padding:.9em 2.2em; border-radius:999px; cursor:pointer;
+    animation:pulseGlow 2.6s ease-in-out infinite;
+  }
+  @keyframes pulseGlow{
+    0%,100%{ box-shadow:0 0 12px rgba(255,217,138,.35); }
+    50%{ box-shadow:0 0 26px rgba(255,217,138,.65); }
+  }
+  .btn-glow.hidden{ display:none; }
+  .btn-glow:active{ transform:scale(.96); }
+
+  .btn-ghost{
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:.9rem;
+    color:var(--blue-pale); background:transparent;
+    border:1px solid rgba(169,210,245,.4); padding:.7em 1.6em; border-radius:999px; cursor:pointer;
+    margin-top:1.4em;
+  }
+  .btn-ghost:active{ transform:scale(.96); }
+  .btn-ghost.small{ margin-top:1.4em; padding:.55em 1.4em; font-size:.85rem; }
+
+  .hint{ font-size:.9rem; color:var(--blue-pale); text-align:center; margin:0 0 .3em; }
+  .counter{ font-weight:700; font-size:.85rem; letter-spacing:.03em; color:var(--gold); margin-bottom:.8em; }
+
+  /* ---------- hearts scene (nivel 1) ---------- */
+  .drop-field{ position:relative; width:100%; flex:1; overflow:hidden; }
+  .heart-drop{
+    position:absolute; top:-8%; font-size:1.9rem; color:var(--gold); cursor:pointer;
+    animation:dropFall linear forwards;
+    filter:drop-shadow(0 0 6px rgba(255,217,138,.5));
+  }
+  @keyframes dropFall{ to{ transform:translateY(118vh); } }
+  .heart-drop.popped{ animation:popOut .35s ease forwards; pointer-events:none; }
+  @keyframes popOut{ to{ transform:scale(1.9); opacity:0; } }
+
+  /* ---------- lights scene (nivel 2) ---------- */
+  .orb-field{ position:relative; width:100%; flex:1; }
+  .orb{
+    position:absolute; width:15vw; height:15vw;
+    max-width:64px; max-height:64px; min-width:46px; min-height:46px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff8e0, var(--gold-soft) 40%, var(--gold) 75%);
+    box-shadow:0 0 18px 4px rgba(255,217,138,.45);
+    cursor:pointer;
+    animation:floaty var(--fdur,4s) ease-in-out infinite;
+    animation-delay:var(--fdelay,0s);
+    transform:translate(-50%,-50%);
+  }
+  @keyframes floaty{
+    0%,100%{ margin:0; }
+    50%{ margin-left:var(--fx,0px); margin-top:var(--fy,0px); }
+  }
+  .orb.collected{ animation:burst .5s ease forwards; pointer-events:none; }
+  @keyframes burst{
+    0%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
+    60%{ transform:translate(-50%,-50%) scale(1.8); opacity:.6; }
+    100%{ transform:translate(-50%,-50%) scale(2.3); opacity:0; }
+  }
+
+  /* ---------- fragment overlay ---------- */
+  .fragment-overlay{
+    position:absolute; inset:0; background:rgba(6,13,28,.72);
+    display:flex; align-items:center; justify-content:center; padding:8vw;
+    opacity:0; visibility:hidden; transition:opacity .35s ease, visibility 0s .35s; z-index:10;
+  }
+  .fragment-overlay.active{ opacity:1; visibility:visible; transition:opacity .35s ease; }
+  .fragment-card{
+    background:rgba(248,244,234,.06); border:1px solid rgba(255,217,138,.35);
+    border-radius:18px; padding:2em 1.6em; text-align:center; max-width:26em;
+    backdrop-filter:blur(6px);
+  }
+  .fragment-card p{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:500;
+    font-size:1.35rem; line-height:1.5; color:var(--cream); margin:0 0 .2em;
+  }
+
+  /* ---------- platformer scene (nivel 3) ---------- */
+  .plat-wrap{
+    position:relative; width:100%; max-width:420px;
+    aspect-ratio:3/4; margin:0 auto;
+    border-radius:16px; overflow:hidden;
+    border:1px solid rgba(169,210,245,.25);
+    background:rgba(255,255,255,.02);
+  }
+  #platCanvas{ display:block; width:100%; height:100%; }
+  .plat-controls{
+    position:absolute; left:0; right:0; bottom:10px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    padding:0 12px; pointer-events:none;
+  }
+  .pad-move{ display:flex; gap:10px; pointer-events:auto; }
+  .pad-btn{
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(169,210,245,.18);
+    border:1px solid rgba(255,255,255,.3);
+    color:var(--cream); font-size:1.3rem;
+    display:flex; align-items:center; justify-content:center;
+    -webkit-user-select:none; user-select:none;
+    touch-action:none;
+  }
+  .pad-btn:active{ background:rgba(255,217,138,.35); }
+  .pad-btn.jump{
+    width:64px; height:64px; pointer-events:auto;
+    background:rgba(255,217,138,.22);
+  }
+  #btn-to-memes2{ margin-top:1em; }
+
+  /* ---------- memes scene (nivel 4) ---------- */
+  .meme-card{
+    background:rgba(248,244,234,.06); border:1px solid rgba(169,210,245,.25);
+    border-radius:18px; padding:1em; max-width:22em; width:100%; text-align:center;
+    backdrop-filter:blur(4px);
+  }
+  .meme-card img{
+    width:100%; border-radius:12px; display:block; margin-bottom:.8em;
+    max-height:38vh; object-fit:contain; background:rgba(0,0,0,.15);
+  }
+  .meme-caption{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.15rem;
+    line-height:1.4; margin:0;
+  }
+  .meme-dots{ display:flex; gap:.4em; margin:1em 0; }
+  .meme-dots span{ width:7px; height:7px; border-radius:50%; background:rgba(169,210,245,.3); }
+  .meme-dots span.active{ background:var(--gold); }
+
+  /* ---------- letter scene ---------- */
+  #scene-letter{ justify-content:flex-start; padding-top:5vh; }
+  .letter-card{
+    background:linear-gradient(180deg, rgba(248,244,234,.97), rgba(248,244,234,.94));
+    color:var(--ink); border-radius:20px; padding:2em 1.7em 1.6em;
+    max-width:30em; width:100%; max-height:58vh; overflow-y:auto;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
+  .letter-kicker{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.1rem;
+    color:var(--blue-sky); margin:0 0 .8em;
+  }
+  .letter-body p{
+    font-family:'Cormorant Garamond', serif; font-weight:500; font-size:1.24rem;
+    line-height:1.6; margin:0 0 1em;
+  }
+  .signature{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;
+    font-size:1.2rem; text-align:right; color:var(--blue-sky); margin:1.2em 0 0;
+  }
+
+  /* ---------- confetti ---------- */
+  .confetti{
+    position:absolute; top:-5%; font-size:1.1rem; color:var(--gold-soft);
+    animation:fall linear forwards; pointer-events:none; z-index:3;
+  }
+  @keyframes fall{ to{ transform:translateY(112vh) rotate(180deg); opacity:.2; } }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="sky"></div>
+
+  <section id="scene-title" class="scene active">
+    <h1 class="title">10 meses</h1>
+    <p class="subtitle">Un juego de 4 niveles, hecho con cariño para ti, Kath ✧</p>
+    <button id="btn-start" class="btn-glow">Comenzar</button>
+  </section>
+
+  <section id="scene-hearts" class="scene">
+    <p class="level-label">Nivel 1 · corazones</p>
+    <p class="hint">Atrapa los corazones antes de que se caigan</p>
+    <div class="counter"><span id="heartCount">0</span>/10 corazones</div>
+    <div class="drop-field" id="dropField"></div>
+    <button id="btn-to-lights" class="btn-glow hidden">Siguiente: recuerdos</button>
+  </section>
+
+  <section id="scene-game" class="scene">
+    <p class="level-label">Nivel 2 · recuerdos</p>
+    <p class="hint">Toca cada luz para descubrir un recuerdo</p>
+    <div class="counter"><span id="count">0</span>/6 luces recogidas</div>
+    <div class="orb-field" id="orbField"></div>
+    <button id="btn-to-plat" class="btn-glow hidden">Siguiente: plataformas</button>
+  </section>
+
+  <section id="scene-plat" class="scene">
+    <p class="level-label">Nivel 3 · plataformas</p>
+    <p class="hint">Salta entre las luces y llega al corazón ✨</p>
+    <div class="counter"><span id="starCount">0</span>/8 estrellas</div>
+    <div class="plat-wrap">
+      <canvas id="platCanvas" width="360" height="480"></canvas>
+      <div class="plat-controls">
+        <div class="pad-move">
+          <button id="btn-left" class="pad-btn">◀</button>
+          <button id="btn-right" class="pad-btn">▶</button>
+        </div>
+        <button id="btn-jump" class="pad-btn jump">▲</button>
+      </div>
+    </div>
+    <button id="btn-to-memes2" class="btn-glow hidden">Siguiente: memes</button>
+  </section>
+
+  <section id="scene-memes" class="scene">
+    <p class="level-label">Nivel 4 · memes</p>
+    <div class="meme-card">
+      <img id="memeImg" src="" alt="meme">
+      <p id="memeCaption" class="meme-caption"></p>
+    </div>
+    <div class="meme-dots" id="memeDots"></div>
+    <button id="btn-meme-next" class="btn-glow">Siguiente</button>
+  </section>
+
+  <section id="scene-letter" class="scene">
+    <div class="letter-card">
+      <p class="letter-kicker">Para Kath</p>
+      <div id="letterBody" class="letter-body"></div>
+      <p class="signature">— Jav</p>
+    </div>
+    <button id="btn-replay" class="btn-ghost">Jugar de nuevo</button>
+  </section>
+
+  <div class="fragment-overlay" id="fragmentOverlay">
+    <div class="fragment-card">
+      <p id="fragmentText"></p>
+      <button id="btn-close-fragment" class="btn-ghost small">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- starfield ----------
+  const sky = document.getElementById('sky');
+  for(let i=0;i<70;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    const size = (Math.random()*2 + 1).toFixed(1);
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.animationDuration = (2 + Math.random()*3).toFixed(1) + 's';
+    s.style.animationDelay = (Math.random()*3).toFixed(1) + 's';
+    sky.appendChild(s);
+  }
+
+  // ---------- scene management ----------
+  const scenes = {
+    title: document.getElementById('scene-title'),
+    hearts: document.getElementById('scene-hearts'),
+    game: document.getElementById('scene-game'),
+    plat: document.getElementById('scene-plat'),
+    memes: document.getElementById('scene-memes'),
+    letter: document.getElementById('scene-letter'),
+  };
+  function goTo(name){
+    Object.values(scenes).forEach(el => el.classList.remove('active'));
+    scenes[name].classList.add('active');
+  }
+
+  // ================= NIVEL 1: corazones =================
+  const HEARTS_GOAL = 10;
+  let heartsCollected = 0;
+  let heartsInterval = null;
+  const dropField = document.getElementById('dropField');
+  const heartCountEl = document.getElementById('heartCount');
+  const btnToLights = document.getElementById('btn-to-lights');
+
+  function spawnHeart(){
+    const h = document.createElement('div');
+    h.className = 'heart-drop';
+    h.textContent = Math.random() < .5 ? '♥' : '✦';
+    h.style.left = (5 + Math.random()*85) + '%';
+    const dur = (3.6 + Math.random()*2.2).toFixed(1);
+    h.style.animationDuration = dur + 's';
+    h.addEventListener('click', () => popHeart(h));
+    dropField.appendChild(h);
+    setTimeout(() => { if(h.parentNode) h.remove(); }, dur*1000 + 150);
+  }
+  function popHeart(h){
+    if(h.classList.contains('popped')) return;
+    h.classList.add('popped');
+    heartsCollected++;
+    heartCountEl.textContent = Math.min(heartsCollected, HEARTS_GOAL);
+    if(navigator.vibrate) navigator.vibrate(10);
+    if(heartsCollected >= HEARTS_GOAL){
+      stopHearts();
+      btnToLights.classList.remove('hidden');
+    }
+  }
+  function stopHearts(){
+    if(heartsInterval){ clearInterval(heartsInterval); heartsInterval = null; }
+  }
+  function startHearts(){
+    heartsCollected = 0;
+    heartCountEl.textContent = 0;
+    btnToLights.classList.add('hidden');
+    dropField.innerHTML = '';
+    stopHearts();
+    heartsInterval = setInterval(spawnHeart, 550);
+  }
+
+  document.getElementById('btn-start').addEventListener('click', () => {
+    goTo('hearts');
+    startHearts();
+  });
+  btnToLights.addEventListener('click', () => goTo('game'));
+
+  // ================= NIVEL 2: luces / carta =================
+  const fragments = [
+    "Te conocí cuando entré en la etapa más dura de mi vida, y fue gracias a ti que logré aguantar todo lo que pasé durante mi servicio militar.",
+    "Te he prometido muchas cosas, y sé que no he podido cumplirlas todas.",
+    "Cada día intento mejorar y ser un mejor novio para ti.",
+    "Sé que pronto lograré demostrártelo: daré lo mejor de mí en mis clases de manejo, para liberar mi certificado y poder entrar a la policía.",
+    "Te amo.",
+    "Felices 10 meses, amorcito. Puede que sea un poco tarde, pero quería darte un lindo regalo."
+  ];
+  const positions = [
+    {left:18, top:14}, {left:74, top:10}, {left:30, top:46},
+    {left:70, top:50}, {left:48, top:26}, {left:50, top:76}
+  ];
+  const orbField = document.getElementById('orbField');
+  const countEl = document.getElementById('count');
+  const btnToPlat = document.getElementById('btn-to-plat');
+  let collected = 0;
+
+  fragments.forEach((text, i) => {
+    const orb = document.createElement('div');
+    orb.className = 'orb';
+    orb.style.left = positions[i].left + '%';
+    orb.style.top = positions[i].top + '%';
+    orb.style.setProperty('--fx', (Math.random()*20 - 10).toFixed(0) + 'px');
+    orb.style.setProperty('--fy', (Math.random()*20 - 10).toFixed(0) + 'px');
+    orb.style.setProperty('--fdur', (3.2 + Math.random()*2).toFixed(1) + 's');
+    orb.style.setProperty('--fdelay', (Math.random()*1.5).toFixed(1) + 's');
+    orb.addEventListener('click', () => collectOrb(orb, text));
+    orbField.appendChild(orb);
+  });
+
+  const overlay = document.getElementById('fragmentOverlay');
+  const fragmentText = document.getElementById('fragmentText');
+
+  function collectOrb(orb, text){
+    if(orb.classList.contains('collected')) return;
+    orb.classList.add('collected');
+    collected++;
+    countEl.textContent = collected;
+    if(navigator.vibrate) navigator.vibrate(12);
+    fragmentText.textContent = text;
+    overlay.classList.add('active');
+    if(collected === fragments.length){
+      btnToPlat.classList.remove('hidden');
+    }
+  }
+  document.getElementById('btn-close-fragment').addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+  btnToPlat.addEventListener('click', () => {
+    goTo('plat');
+    startPlatformer();
+  });
+
+  // ================= NIVEL 3: plataformas =================
+  const canvas = document.getElementById('platCanvas');
+  const ctx = canvas.getContext('2d');
+  const CW = canvas.width, CH = canvas.height;
+  const GRAVITY = 0.55, JUMP_V = -11.5, MOVE_SPEED = 3.4, MAX_FALL = 12;
+
+  const platforms = [
+    {x:0,    y:430, w:260, h:50, start:true},
+    {x:330,  y:400, w:110, h:16},
+    {x:510,  y:360, w:100, h:16},
+    {x:690,  y:400, w:100, h:16},
+    {x:870,  y:340, w:90,  h:16},
+    {x:1040, y:300, w:90,  h:16},
+    {x:1210, y:360, w:110, h:16},
+    {x:1390, y:320, w:90,  h:16},
+    {x:1560, y:380, w:110, h:16},
+    {x:1740, y:400, w:300, h:50, goal:true}
+  ];
+  const WORLD_W = 2100;
+  const starDefs = platforms.slice(1,-1).map(p => ({ x:p.x + p.w/2, y:p.y - 26 }));
+  let stars = [];
+  const starCountEl = document.getElementById('starCount');
+  const btnToMemes2 = document.getElementById('btn-to-memes2');
+
+  const player = { x:40, y:0, w:26, h:26, vx:0, vy:0, onGround:false };
+  let spawn = { x:40, y:430-26 };
+  let cameraX = 0;
+  let starsCollected = 0;
+  let goalReached = false;
+  let platRAF = null;
+  const padKeys = { left:false, right:false, jump:false };
+
+  function bindPad(el, key){
+    const on = (e) => { e.preventDefault(); padKeys[key] = true; };
+    const off = (e) => { e.preventDefault(); padKeys[key] = false; };
+    el.addEventListener('pointerdown', on);
+    el.addEventListener('pointerup', off);
+    el.addEventListener('pointerleave', off);
+    el.addEventListener('pointercancel', off);
+  }
+  bindPad(document.getElementById('btn-left'), 'left');
+  bindPad(document.getElementById('btn-right'), 'right');
+  bindPad(document.getElementById('btn-jump'), 'jump');
+
+  function resetPlatformer(){
+    player.x = spawn.x; player.y = spawn.y;
+    player.vx = 0; player.vy = 0; player.onGround = false;
+    cameraX = 0;
+    starsCollected = 0;
+    starCountEl.textContent = 0;
+    stars = starDefs.map(s => ({ x:s.x, y:s.y, collected:false }));
+    goalReached = false;
+    btnToMemes2.classList.add('hidden');
+  }
+
+  function startPlatformer(){
+    resetPlatformer();
+    if(platRAF) cancelAnimationFrame(platRAF);
+    platLoop();
+  }
+  function stopPlatformer(){
+    if(platRAF){ cancelAnimationFrame(platRAF); platRAF = null; }
+  }
+
+  function platLoop(){
+    update();
+    render();
+    if(!goalReached){
+      platRAF = requestAnimationFrame(platLoop);
+    } else {
+      platRAF = requestAnimationFrame(platLoop); // keep rendering gently while button is shown
+    }
+  }
+
+  function update(){
+    const prevFoot = player.y + player.h;
+
+    player.vx = (padKeys.right ? MOVE_SPEED : 0) - (padKeys.left ? MOVE_SPEED : 0);
+    player.x += player.vx;
+    player.x = Math.max(0, Math.min(WORLD_W - player.w, player.x));
+
+    if(padKeys.jump && player.onGround){
+      player.vy = JUMP_V;
+      player.onGround = false;
+    }
+
+    player.vy += GRAVITY;
+    if(player.vy > MAX_FALL) player.vy = MAX_FALL;
+    player.y += player.vy;
+
+    player.onGround = false;
+    for(const p of platforms){
+      const withinX = player.x + player.w > p.x && player.x < p.x + p.w;
+      const footNow = player.y + player.h;
+      if(withinX && player.vy >= 0 && prevFoot <= p.y + 1 && footNow >= p.y && footNow <= p.y + p.h + player.vy + 1){
+        player.y = p.y - player.h;
+        player.vy = 0;
+        player.onGround = true;
+        spawn = { x: Math.max(p.x + 6, 0), y: p.y - player.h };
+        if(p.goal) goalReached = true;
+      }
+    }
+
+    if(player.y > CH + 60){
+      player.x = spawn.x; player.y = spawn.y; player.vx = 0; player.vy = 0;
+    }
+
+    for(const s of stars){
+      if(s.collected) continue;
+      const dx = (player.x + player.w/2) - s.x;
+      const dy = (player.y + player.h/2) - s.y;
+      if(Math.sqrt(dx*dx + dy*dy) < 24){
+        s.collected = true;
+        starsCollected++;
+        starCountEl.textContent = starsCollected;
+        if(navigator.vibrate) navigator.vibrate(10);
+      }
+    }
+
+    if(goalReached){
+      btnToMemes2.classList.remove('hidden');
+    }
+
+    cameraX = Math.max(0, Math.min(WORLD_W - CW, player.x + player.w/2 - CW/2));
+  }
+
+  function render(){
+    ctx.clearRect(0,0,CW,CH);
+    ctx.save();
+    ctx.translate(-cameraX, 0);
+
+    for(const p of platforms){
+      const grad = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.h);
+      if(p.goal || p.start){
+        grad.addColorStop(0, 'rgba(169,210,245,0.35)');
+        grad.addColorStop(1, 'rgba(61,111,180,0.35)');
+      } else {
+        grad.addColorStop(0, 'rgba(255,217,138,0.9)');
+        grad.addColorStop(1, 'rgba(255,240,194,0.7)');
+      }
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.roundRect(p.x, p.y, p.w, p.h, 8);
+      ctx.fill();
+    }
+
+    ctx.font = '20px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for(const s of stars){
+      if(s.collected) continue;
+      ctx.fillStyle = '#ffd98a';
+      ctx.fillText('✦', s.x, s.y);
+    }
+
+    const goalP = platforms[platforms.length-1];
+    ctx.font = '30px sans-serif';
+    ctx.fillText('❤', goalP.x + goalP.w/2, goalP.y - 20);
+
+    const grd = ctx.createRadialGradient(
+      player.x+player.w/2, player.y+player.h/2, 2,
+      player.x+player.w/2, player.y+player.h/2, player.w
+    );
+    grd.addColorStop(0, '#fff8e0');
+    grd.addColorStop(0.5, '#ffd98a');
+    grd.addColorStop(1, 'rgba(255,217,138,0)');
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(player.x+player.w/2, player.y+player.h/2, player.w, 0, Math.PI*2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  btnToMemes2.addEventListener('click', () => {
+    stopPlatformer();
+    goTo('memes');
+    resetMemes();
+  });
+
+  // ================= NIVEL 4: memes =================
+  const memes = [
+    { src:'images/foca-audifonos.jpg', caption:"Foca gordita toda bonita" },
+    { src:'images/tigre.jpg', caption:"Ya no hay buenos juegos en la playstore" },
+    { src:'images/morsa-bigote.jpg', caption:"Oye preciosa, ¿acaso eres panadería? Porque traes ese baguette" },
+    { src:'images/gato-blanco-negro.jpg', caption:"Como dos gotas de petróleo" },
+    { src:'images/hombre-audifonos.jpg', caption:"Mi reacción ante tal papeada" },
+    { src:'images/gato-borroso.jpg', caption:"Un hola mi amor" }
+  ];
+  let memeIndex = 0;
+  const memeImg = document.getElementById('memeImg');
+  const memeCaption = document.getElementById('memeCaption');
+  const memeDots = document.getElementById('memeDots');
+  const btnMemeNext = document.getElementById('btn-meme-next');
+
+  memes.forEach(() => memeDots.appendChild(document.createElement('span')));
+
+  function renderMeme(){
+    memeImg.src = memes[memeIndex].src;
+    memeCaption.textContent = memes[memeIndex].caption;
+    [...memeDots.children].forEach((d,i) => d.classList.toggle('active', i === memeIndex));
+    btnMemeNext.textContent = memeIndex === memes.length - 1 ? 'Continuar a la carta' : 'Siguiente';
+  }
+  function resetMemes(){ memeIndex = 0; renderMeme(); }
+
+  btnMemeNext.addEventListener('click', () => {
+    if(memeIndex < memes.length - 1){
+      memeIndex++;
+      renderMeme();
+    } else {
+      buildLetter();
+      goTo('letter');
+    }
+  });
+
+  // ================= carta final =================
+  const letterBody = document.getElementById('letterBody');
+  let letterBuilt = false;
+  function buildLetter(){
+    if(letterBuilt) return;
+    fragments.forEach(t => {
+      const p = document.createElement('p');
+      p.textContent = t;
+      letterBody.appendChild(p);
+    });
+    letterBuilt = true;
+    spawnConfetti();
+  }
+
+  function spawnConfetti(){
+    const symbols = ['✦','✧','♥','⋆'];
+    const app = document.getElementById('app');
+    for(let i=0;i<22;i++){
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      c.style.left = Math.random()*100 + '%';
+      c.style.animationDuration = (2.5 + Math.random()*2).toFixed(1) + 's';
+      c.style.animationDelay = (Math.random()*1.2).toFixed(1) + 's';
+      c.style.opacity = (0.5 + Math.random()*0.5).toFixed(2);
+      app.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }
+  }
+
+  // ================= reiniciar =================
+  document.getElementById('btn-replay').addEventListener('click', () => {
+    document.querySelectorAll('.orb').forEach(o => o.classList.remove('collected'));
+    collected = 0;
+    countEl.textContent = 0;
+    btnToPlat.classList.add('hidden');
+    memeIndex = 0;
+    goTo('hearts');
+    startHearts();
+  });
+</script>
+</body>
+</html>
