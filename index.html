@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a1730">
+<title>10 meses — para Kath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0a1730;
+    --navy-mid:#132a52;
+    --blue-sky:#3d6fb4;
+    --blue-pale:#a9d2f5;
+    --gold:#ffd98a;
+    --gold-soft:#fff0c2;
+    --cream:#f8f4ea;
+    --ink:#1c2942;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:var(--navy-deep);
+    overflow:hidden;
+    touch-action:manipulation;
+    -webkit-user-select:none; user-select:none;
+  }
+
+  body{ font-family:'Quicksand',system-ui,sans-serif; color:var(--cream); }
+
+  #app{
+    position:relative; width:100%; height:100dvh; overflow:hidden;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% -10%, var(--navy-mid) 0%, transparent 60%),
+      linear-gradient(180deg, var(--navy-deep) 0%, #0d1e3d 55%, #0a1730 100%);
+  }
+
+  /* subtle painterly grain, generated locally (no external download) */
+  #grain{
+    position:absolute; inset:0; pointer-events:none; z-index:1;
+    background-image:url('data:image/png;base64,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');
+    background-size:96px 96px;
+    mix-blend-mode:overlay; opacity:.05;
+  }
+
+  /* parallax hill scenery, hand-drawn shapes (no external download) */
+  #hills{ position:absolute; inset:0; pointer-events:none; z-index:1; overflow:hidden; }
+  #hills svg{ position:absolute; left:0; width:100%; }
+  #hills .hill-far{ bottom:0; height:20vh; opacity:.5; }
+  #hills .hill-near{ bottom:0; height:14vh; opacity:.8; }
+
+  /* ---------- stars ---------- */
+  #sky{ position:absolute; inset:0; pointer-events:none; }
+  .star{
+    position:absolute; width:2px; height:2px;
+    background:var(--blue-pale); border-radius:50%; opacity:.7;
+    animation:twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:.15; transform:scale(1); }
+    50%{ opacity:.9; transform:scale(1.6); }
+  }
+
+  /* ---------- scenes ---------- */
+  .scene{
+    position:absolute; inset:0; z-index:2;
+    display:flex; flex-direction:column; align-items:center;
+    padding:5.5vh 5vw 3.5vh;
+    opacity:0; visibility:hidden; transform:translateY(12px);
+    transition:opacity .6s ease, transform .6s ease, visibility 0s .6s;
+  }
+  .scene.active{
+    opacity:1; visibility:visible; transform:translateY(0);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+
+  .level-label{ font-size:.8rem; color:var(--blue-pale); opacity:.85; margin:0 0 .3em; }
+
+  /* ---------- title scene ---------- */
+  #scene-title{ justify-content:center; text-align:center; }
+  .title{
+    font-family:'Cormorant Garamond', serif; font-weight:600;
+    font-size:clamp(2.6rem, 13vw, 4rem); line-height:1; margin:0 0 .4em;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 18px rgba(255,217,138,.25));
+  }
+  .subtitle{ font-size:1rem; color:var(--blue-pale); margin:0 0 2.2em; max-width:24em; line-height:1.5; }
+  .diff-row{ display:flex; gap:12px; }
+  .btn-diff{
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:.95rem;
+    border-radius:16px; padding:1em 1.3em; cursor:pointer; text-align:left;
+    border:1px solid rgba(255,217,138,.4); min-width:9.2em;
+  }
+  .btn-diff .diff-name{ display:block; font-size:1.05rem; margin-bottom:.15em; }
+  .btn-diff .diff-sub{ display:block; font-size:.72rem; font-weight:600; opacity:.75; }
+  .btn-diff.easy{ background:linear-gradient(180deg, rgba(169,210,245,.28), rgba(61,111,180,.28)); color:var(--cream); }
+  .btn-diff.hard{ background:linear-gradient(180deg, rgba(255,217,138,.9), rgba(255,240,194,.7)); color:var(--navy-deep); }
+  .btn-diff:active{ transform:scale(.96); }
+
+  #livesHud{
+    position:absolute; top:calc(10px + env(safe-area-inset-top,0px)); right:10px; z-index:4;
+    background:rgba(10,23,48,.6); border:1px solid rgba(255,217,138,.3);
+    border-radius:999px; padding:.3em .7em; font-size:.95rem; letter-spacing:1px;
+    display:none;
+  }
+  #livesHud.show{ display:block; }
+
+  .global-toast{
+    position:absolute; top:calc(52px + env(safe-area-inset-top,0px)); left:50%; transform:translate(-50%,-8px);
+    background:rgba(10,23,48,.88); border:1px solid rgba(169,210,245,.4);
+    color:var(--cream); font-size:.82rem; font-weight:600;
+    padding:.5em 1em; border-radius:999px; white-space:nowrap; z-index:6;
+    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
+  }
+  .global-toast.show{ opacity:1; transform:translate(-50%,0); }
+
+  .btn-glow{
+    font-family:'Quicksand',sans-serif; font-weight:700; font-size:1rem; letter-spacing:.02em;
+    color:var(--navy-deep);
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    border:none; padding:.85em 2.1em; border-radius:999px; cursor:pointer;
+    animation:pulseGlow 2.6s ease-in-out infinite;
+  }
+  @keyframes pulseGlow{
+    0%,100%{ box-shadow:0 0 12px rgba(255,217,138,.35); }
+    50%{ box-shadow:0 0 26px rgba(255,217,138,.65); }
+  }
+  .btn-glow.hidden{ display:none; }
+  .btn-glow:active{ transform:scale(.96); }
+
+  .btn-ghost{
+    font-family:'Quicksand',sans-serif; font-weight:600; font-size:.9rem;
+    color:var(--blue-pale); background:transparent;
+    border:1px solid rgba(169,210,245,.4); padding:.65em 1.5em; border-radius:999px; cursor:pointer;
+    margin-top:1.2em;
+  }
+  .btn-ghost:active{ transform:scale(.96); }
+  .btn-ghost.small{ margin-top:1.4em; padding:.55em 1.4em; font-size:.85rem; }
+
+  .hint{ font-size:.88rem; color:var(--blue-pale); text-align:center; margin:0 0 .3em; }
+  .counter{ font-weight:700; font-size:.85rem; letter-spacing:.03em; color:var(--gold); margin-bottom:.7em; }
+
+  /* ---------- hearts scene (nivel 1) ---------- */
+  .drop-field{ position:relative; width:100%; flex:1; overflow:hidden; }
+  .heart-drop{
+    position:absolute; top:-8%; font-size:1.9rem; color:var(--gold); cursor:pointer;
+    animation:dropFall linear forwards;
+    filter:drop-shadow(0 0 6px rgba(255,217,138,.5));
+  }
+  @keyframes dropFall{ to{ transform:translateY(118vh); } }
+  .heart-drop.popped{ animation:popOut .35s ease forwards; pointer-events:none; }
+  @keyframes popOut{ to{ transform:scale(1.9); opacity:0; } }
+
+  /* ---------- fotos scene (nivel 4) ---------- */
+  .photo-drop{
+    position:absolute; top:-12%; width:52px; height:52px;
+    border-radius:50%; cursor:pointer;
+    background-size:cover; background-position:center;
+    border:2px solid var(--gold-soft);
+    box-shadow:0 0 12px rgba(255,217,138,.4);
+    animation:dropFall linear forwards;
+  }
+  .photo-drop.decoy{
+    border-color:rgba(169,210,245,.5);
+    box-shadow:0 0 10px rgba(169,210,245,.3);
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(169,210,245,.12); color:var(--blue-pale); font-size:1.4rem;
+  }
+  .photo-drop.popped{ animation:popOut .35s ease forwards; pointer-events:none; }
+  .photo-drop.fizzled{ animation:fizzle .35s ease forwards; pointer-events:none; }
+  @keyframes fizzle{ to{ transform:scale(.4); opacity:0; } }
+  #btn-to-memoria2{ margin-top:.6em; }
+
+  /* ---------- esquiva scene (nivel 4) ---------- */
+  .dodge-field{
+    position:relative; width:min(100%, 340px); height:min(380px, 42vh);
+    margin:0 auto; border-radius:16px; overflow:hidden;
+    border:1px solid rgba(169,210,245,.25); background:rgba(255,255,255,.02);
+  }
+  .dodge-lane-line{
+    position:absolute; top:0; bottom:0; width:1px; background:rgba(169,210,245,.12);
+  }
+  .dodge-obstacle{
+    position:absolute; width:34px; height:34px; margin-left:-17px;
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+    filter:drop-shadow(0 0 6px rgba(0,0,0,.4));
+  }
+  .dodge-player{
+    position:absolute; bottom:12px; width:46px; height:46px; margin-left:-23px;
+    background-size:contain; background-repeat:no-repeat; background-position:center;
+    transition:left .16s ease;
+  }
+  .dodge-controls{ display:flex; gap:14px; margin-top:1em; }
+  #btn-to-fotos2{ margin-top:.6em; }
+
+  /* ---------- lights scene (nivel 2) ---------- */
+  .orb-field{ position:relative; width:100%; flex:1; }
+  .orb{
+    position:absolute; width:15vw; height:15vw;
+    max-width:64px; max-height:64px; min-width:46px; min-height:46px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fff8e0, var(--gold-soft) 40%, var(--gold) 75%);
+    box-shadow:0 0 18px 4px rgba(255,217,138,.45);
+    cursor:pointer;
+    animation:floaty var(--fdur,4s) ease-in-out infinite;
+    animation-delay:var(--fdelay,0s);
+    transform:translate(-50%,-50%);
+  }
+  @keyframes floaty{
+    0%,100%{ margin:0; }
+    50%{ margin-left:var(--fx,0px); margin-top:var(--fy,0px); }
+  }
+  .orb.collected{ animation:burst .5s ease forwards; pointer-events:none; }
+  @keyframes burst{
+    0%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
+    60%{ transform:translate(-50%,-50%) scale(1.8); opacity:.6; }
+    100%{ transform:translate(-50%,-50%) scale(2.3); opacity:0; }
+  }
+
+  /* ---------- fragment overlay ---------- */
+  .fragment-overlay{
+    position:absolute; inset:0; background:rgba(6,13,28,.72);
+    display:flex; align-items:center; justify-content:center; padding:8vw;
+    opacity:0; visibility:hidden; transition:opacity .35s ease, visibility 0s .35s; z-index:10;
+  }
+  .fragment-overlay.active{ opacity:1; visibility:visible; transition:opacity .35s ease; }
+  .fragment-card{
+    background:rgba(248,244,234,.06); border:1px solid rgba(255,217,138,.35);
+    border-radius:18px; padding:2em 1.6em; text-align:center; max-width:26em;
+    backdrop-filter:blur(6px);
+  }
+  .fragment-card p{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:500;
+    font-size:1.35rem; line-height:1.5; color:var(--cream); margin:0 0 .2em;
+  }
+
+  /* ---------- platformer scene (nivel 3) ---------- */
+  .plat-wrap{
+    position:relative; width:min(92vw, 420px, 42vh);
+    aspect-ratio:3/4; margin:0 auto;
+    border-radius:16px; overflow:hidden;
+    border:1px solid rgba(169,210,245,.25);
+    background:rgba(255,255,255,.02);
+  }
+  #platCanvas{ display:block; width:100%; height:100%; }
+  .plat-controls{
+    position:absolute; left:0; right:0; bottom:10px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    padding:0 12px; pointer-events:none;
+  }
+  .pad-move{ display:flex; gap:10px; pointer-events:auto; }
+  .pad-btn{
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(169,210,245,.18);
+    border:1px solid rgba(255,255,255,.3);
+    color:var(--cream); font-size:1.3rem;
+    display:flex; align-items:center; justify-content:center;
+    -webkit-user-select:none; user-select:none;
+    touch-action:none;
+  }
+  .pad-btn:active{ background:rgba(255,217,138,.35); }
+  .pad-btn.jump{
+    width:64px; height:64px; pointer-events:auto;
+    background:rgba(255,217,138,.22);
+  }
+  .plat-toast{
+    position:absolute; top:10px; left:50%; transform:translate(-50%,-8px);
+    background:rgba(10,23,48,.85); border:1px solid rgba(169,210,245,.4);
+    color:var(--cream); font-size:.82rem; font-weight:600;
+    padding:.5em 1em; border-radius:999px; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
+  }
+  .plat-toast.show{ opacity:1; transform:translate(-50%,0); }
+  #btn-to-memoria{ margin-top:.9em; }
+
+  /* ---------- memoria scene (nivel 4) ---------- */
+  .memoria-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr);
+    gap:8px; width:100%; max-width:360px; margin:0 auto;
+  }
+  .mem-card{
+    position:relative; aspect-ratio:1; border-radius:10px;
+    cursor:pointer; perspective:600px;
+  }
+  .mem-card-inner{
+    position:relative; width:100%; height:100%;
+    transform-style:preserve-3d; transition:transform .4s ease;
+  }
+  .mem-card.flipped .mem-card-inner{ transform:rotateY(180deg); }
+  .mem-face{
+    position:absolute; inset:0; border-radius:10px;
+    backface-visibility:hidden; display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .mem-front{
+    background:linear-gradient(160deg, rgba(169,210,245,.18), rgba(61,111,180,.28));
+    border:1px solid rgba(169,210,245,.35);
+    font-size:1.3rem; color:var(--blue-pale);
+  }
+  .mem-back{
+    transform:rotateY(180deg);
+    background:var(--navy-mid);
+    border:1px solid rgba(255,217,138,.4);
+  }
+  .mem-back img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .mem-card.matched .mem-front, .mem-card.matched .mem-back{
+    box-shadow:0 0 0 2px var(--gold), 0 0 14px rgba(255,217,138,.5);
+  }
+  #btn-to-memes3{ margin-top:1.1em; }
+
+  /* ---------- constelación scene (nivel 5) ---------- */
+  .const-wrap{ position:relative; width:100%; max-width:320px; margin:0 auto; }
+  .const-wrap svg{ width:100%; height:auto; display:block; }
+  .const-dot{
+    cursor:pointer;
+    transition:r .2s ease;
+  }
+  .const-dot.done{ fill:var(--gold); }
+  .const-dot.next{ animation:dotPulse 1.1s ease-in-out infinite; }
+  @keyframes dotPulse{
+    0%,100%{ r:6; filter:drop-shadow(0 0 4px rgba(255,217,138,.7)); }
+    50%{ r:9; filter:drop-shadow(0 0 10px rgba(255,217,138,.95)); }
+  }
+  #heartFill{ transition:opacity .8s ease; }
+  #btn-to-memes4{ margin-top:1.2em; }
+
+  /* ---------- memes scene (nivel 6) ---------- */
+  .meme-card{
+    background:rgba(248,244,234,.06); border:1px solid rgba(169,210,245,.25);
+    border-radius:18px; padding:1em; max-width:22em; width:100%; text-align:center;
+    backdrop-filter:blur(4px);
+  }
+  .meme-card img{
+    width:100%; border-radius:12px; display:block; margin-bottom:.8em;
+    max-height:36vh; object-fit:contain; background:rgba(0,0,0,.15);
+  }
+  .meme-caption{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.15rem;
+    line-height:1.4; margin:0;
+  }
+  .meme-dots{ display:flex; gap:.4em; margin:.9em 0; }
+  .meme-dots span{ width:7px; height:7px; border-radius:50%; background:rgba(169,210,245,.3); }
+  .meme-dots span.active{ background:var(--gold); }
+
+  /* ---------- letter scene ---------- */
+  #scene-letter{ justify-content:flex-start; padding-top:4.5vh; }
+  .letter-card{
+    background:linear-gradient(180deg, rgba(248,244,234,.97), rgba(248,244,234,.94));
+    color:var(--ink); border-radius:20px; padding:1.9em 1.6em 1.5em;
+    max-width:30em; width:100%; max-height:56vh; overflow-y:auto;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
+  .letter-kicker{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.1rem;
+    color:var(--blue-sky); margin:0 0 .8em;
+  }
+  .letter-body p{
+    font-family:'Cormorant Garamond', serif; font-weight:500; font-size:1.2rem;
+    line-height:1.6; margin:0 0 1em;
+  }
+  .signature{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600;
+    font-size:1.2rem; text-align:right; color:var(--blue-sky); margin:1.2em 0 0;
+  }
+
+  /* ---------- confetti ---------- */
+  .confetti{
+    position:absolute; top:-5%; font-size:1.1rem; color:var(--gold-soft);
+    animation:fall linear forwards; pointer-events:none; z-index:3;
+  }
+  @keyframes fall{ to{ transform:translateY(112vh) rotate(180deg); opacity:.2; } }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div id="sky"></div>
+  <div id="hills">
+    <svg class="hill-far" viewBox="0 0 400 120" preserveAspectRatio="none">
+      <path d="M0,80 C60,40 140,100 200,60 C260,20 340,90 400,50 L400,120 L0,120 Z" fill="#132a52"></path>
+    </svg>
+    <svg class="hill-near" viewBox="0 0 400 120" preserveAspectRatio="none">
+      <path d="M0,100 C80,60 160,110 240,70 C320,30 360,100 400,80 L400,120 L0,120 Z" fill="#0d1e3d"></path>
+    </svg>
+  </div>
+  <div id="grain"></div>
+  <div id="livesHud"></div>
+  <div class="global-toast" id="globalToast"></div>
+
+  <section id="scene-title" class="scene active">
+    <h1 class="title">10 meses</h1>
+    <p class="subtitle">Un juego de 10 niveles, hecho con cariño para ti, Kath ✧</p>
+    <div class="diff-row">
+      <button id="btn-easy" class="btn-diff easy">
+        <span class="diff-name">🌙 Fácil</span>
+        <span class="diff-sub">5 vidas, ritmo tranquilo</span>
+      </button>
+      <button id="btn-hard" class="btn-diff hard">
+        <span class="diff-name">⚡ Difícil</span>
+        <span class="diff-sub">3 vidas, más reto</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="scene-hearts" class="scene">
+    <p class="level-label">Nivel 1 · corazones</p>
+    <p class="hint">Atrapa los corazones antes de que se caigan</p>
+    <div class="counter"><span id="heartCount">0</span>/10 corazones</div>
+    <div class="drop-field" id="dropField"></div>
+    <button id="btn-to-lights" class="btn-glow hidden">Siguiente: recuerdos</button>
+  </section>
+
+  <section id="scene-game" class="scene">
+    <p class="level-label">Nivel 2 · recuerdos</p>
+    <p class="hint">Toca cada luz para descubrir un recuerdo</p>
+    <div class="counter"><span id="count">0</span>/6 luces recogidas</div>
+    <div class="orb-field" id="orbField"></div>
+    <button id="btn-to-plat" class="btn-glow hidden">Siguiente: plataformas</button>
+  </section>
+
+  <section id="scene-plat" class="scene">
+    <p class="level-label">Nivel 3 · plataformas</p>
+    <p class="hint">Junta el impulso azul para cruzar el salto grande</p>
+    <div class="counter"><span id="starCount">0</span>/10 estrellas</div>
+    <div class="plat-wrap">
+      <canvas id="platCanvas" width="360" height="480"></canvas>
+      <div class="plat-toast" id="platToast"></div>
+      <div class="plat-controls">
+        <div class="pad-move">
+          <button id="btn-left" class="pad-btn">◀</button>
+          <button id="btn-right" class="pad-btn">▶</button>
+        </div>
+        <button id="btn-jump" class="pad-btn jump">▲</button>
+      </div>
+    </div>
+    <button id="btn-to-fotos" class="btn-glow hidden">Siguiente: escalar</button>
+  </section>
+
+  <section id="scene-climb" class="scene">
+    <p class="level-label">Nivel 4 · escalar</p>
+    <p class="hint">Usa ◀▶ para no salirte de las plataformas</p>
+    <div class="counter"><span id="climbStarCount">0</span>/24 estrellas</div>
+    <div class="plat-wrap">
+      <canvas id="climbCanvas" width="360" height="480"></canvas>
+      <div class="plat-controls" style="justify-content:center;">
+        <div class="pad-move">
+          <button id="btn-climb-left" class="pad-btn">◀</button>
+          <button id="btn-climb-right" class="pad-btn">▶</button>
+        </div>
+      </div>
+    </div>
+    <button id="btn-to-race" class="btn-glow hidden">Siguiente: carreras</button>
+  </section>
+
+  <section id="scene-race" class="scene">
+    <p class="level-label">Nivel 5 · carreras</p>
+    <p class="hint">Toca la pantalla o el botón para saltar</p>
+    <div class="counter"><span id="raceCount">0</span>/<span id="raceGoalLabel">15</span> obstáculos</div>
+    <div class="plat-wrap">
+      <canvas id="raceCanvas" width="360" height="480"></canvas>
+    </div>
+    <button id="btn-race-jump" class="btn-glow" style="margin-top:.8em;">🦘 Saltar</button>
+    <button id="btn-to-dodge2" class="btn-glow hidden">Siguiente: esquiva</button>
+  </section>
+
+  <section id="scene-dodge" class="scene">
+    <p class="level-label">Nivel 6 · esquiva</p>
+    <p class="hint">Cambia de carril y esquiva los pulpitos</p>
+    <div class="counter"><span id="dodgeCount">0</span>/<span id="dodgeGoalLabel">14</span> esquivados</div>
+    <div class="dodge-field" id="dodgeField">
+      <div class="dodge-lane-line" style="left:33.33%"></div>
+      <div class="dodge-lane-line" style="left:66.66%"></div>
+      <div class="dodge-player" id="dodgePlayer"></div>
+    </div>
+    <div class="dodge-controls">
+      <button id="btn-dodge-left" class="pad-btn">◀</button>
+      <button id="btn-dodge-right" class="pad-btn">▶</button>
+    </div>
+    <button id="btn-to-fotos2" class="btn-glow hidden">Siguiente: fotos</button>
+  </section>
+
+  <section id="scene-fotos" class="scene">
+    <p class="level-label">Nivel 7 · fotos</p>
+    <p class="hint">Atrapa las fotos, evita lo demás</p>
+    <div class="counter"><span id="photoCount">0</span>/12 fotos</div>
+    <div class="drop-field" id="photoField"></div>
+    <button id="btn-to-memoria2" class="btn-glow hidden">Siguiente: memoria</button>
+  </section>
+
+  <section id="scene-memoria" class="scene">
+    <p class="level-label">Nivel 8 · memoria</p>
+    <p class="hint">Encuentra las 6 parejas</p>
+    <div class="counter"><span id="pairCount">0</span>/6 parejas</div>
+    <div class="memoria-grid" id="memoriaGrid"></div>
+    <button id="btn-to-memes3" class="btn-glow hidden">Siguiente: constelación</button>
+  </section>
+
+  <section id="scene-const" class="scene">
+    <p class="level-label">Nivel 9 · constelación</p>
+    <p class="hint">Toca la estrella que brilla, en orden</p>
+    <div class="const-wrap">
+      <svg id="constSvg" viewBox="0 0 300 260">
+        <path id="heartFill" d="" fill="var(--gold)" opacity="0"></path>
+        <path id="constPath" d="" fill="none" stroke="var(--gold-soft)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <g id="constDots"></g>
+      </svg>
+    </div>
+    <button id="btn-to-memes4" class="btn-glow hidden">Siguiente: memes</button>
+  </section>
+
+  <section id="scene-memes" class="scene">
+    <p class="level-label">Nivel 10 · memes</p>
+    <div class="meme-card">
+      <img id="memeImg" src="" alt="meme">
+      <p id="memeCaption" class="meme-caption"></p>
+    </div>
+    <div class="meme-dots" id="memeDots"></div>
+    <button id="btn-meme-next" class="btn-glow">Siguiente</button>
+  </section>
+
+  <section id="scene-letter" class="scene">
+    <div class="letter-card">
+      <p class="letter-kicker">Para Kath</p>
+      <div id="letterBody" class="letter-body"></div>
+      <p class="signature">— Jav</p>
+    </div>
+    <button id="btn-replay" class="btn-ghost">Jugar de nuevo</button>
+  </section>
+
+  <div class="fragment-overlay" id="fragmentOverlay">
+    <div class="fragment-card">
+      <p id="fragmentText"></p>
+      <button id="btn-close-fragment" class="btn-ghost small">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- starfield ----------
+  const sky = document.getElementById('sky');
+  for(let i=0;i<70;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    const size = (Math.random()*2 + 1).toFixed(1);
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.animationDuration = (2 + Math.random()*3).toFixed(1) + 's';
+    s.style.animationDelay = (Math.random()*3).toFixed(1) + 's';
+    sky.appendChild(s);
+  }
+
+  // ---------- scene management ----------
+  const scenes = {
+    title: document.getElementById('scene-title'),
+    hearts: document.getElementById('scene-hearts'),
+    game: document.getElementById('scene-game'),
+    plat: document.getElementById('scene-plat'),
+    climb: document.getElementById('scene-climb'),
+    race: document.getElementById('scene-race'),
+    dodge: document.getElementById('scene-dodge'),
+    fotos: document.getElementById('scene-fotos'),
+    memoria: document.getElementById('scene-memoria'),
+    const: document.getElementById('scene-const'),
+    memes: document.getElementById('scene-memes'),
+    letter: document.getElementById('scene-letter'),
+  };
+  function goTo(name){
+    Object.values(scenes).forEach(el => el.classList.remove('active'));
+    scenes[name].classList.add('active');
+  }
+
+  // ================= dificultad y vidas =================
+  const DIFF = {
+    easy: { lives:5, heartsBadChance:0.12, fotosDecoyChance:0.22, enemyCount:2, enemySpeed:1.0, dodgeSpeed:2.4, dodgeSpawnMs:950, dodgeGoal:14 },
+    hard: { lives:3, heartsBadChance:0.22, fotosDecoyChance:0.34, enemyCount:3, enemySpeed:1.5, dodgeSpeed:3.3, dodgeSpawnMs:720, dodgeGoal:18 }
+  };
+  let difficulty = DIFF.easy;
+  let maxLives = 5;
+  let lives = 5;
+  const livesHud = document.getElementById('livesHud');
+  const globalToast = document.getElementById('globalToast');
+  let globalToastTimer = null;
+
+  function showGlobalToast(msg){
+    globalToast.textContent = msg;
+    globalToast.classList.add('show');
+    if(globalToastTimer) clearTimeout(globalToastTimer);
+    globalToastTimer = setTimeout(() => globalToast.classList.remove('show'), 1900);
+  }
+  function updateLivesHud(){
+    livesHud.textContent = '❤'.repeat(Math.max(0,lives)) + '♡'.repeat(Math.max(0,maxLives-lives));
+  }
+  function loseLife(){
+    lives--;
+    updateLivesHud();
+    if(navigator.vibrate) navigator.vibrate([30,30,30]);
+    if(lives <= 0){
+      lives = maxLives;
+      updateLivesHud();
+      showGlobalToast('💕 Vidas recargadas — sigue intentando');
+    }
+  }
+  function startGame(diffKey){
+    difficulty = DIFF[diffKey];
+    maxLives = difficulty.lives;
+    lives = maxLives;
+    livesHud.classList.add('show');
+    updateLivesHud();
+    goTo('hearts');
+    startHearts();
+  }
+  document.getElementById('btn-easy').addEventListener('click', () => startGame('easy'));
+  document.getElementById('btn-hard').addEventListener('click', () => startGame('hard'));
+
+  // ================= NIVEL 1: corazones =================
+  const HEARTS_GOAL = 10;
+  let heartsCollected = 0;
+  let heartsInterval = null;
+  const dropField = document.getElementById('dropField');
+  const heartCountEl = document.getElementById('heartCount');
+  const btnToLights = document.getElementById('btn-to-lights');
+
+  function spawnHeart(){
+    const h = document.createElement('div');
+    h.className = 'heart-drop';
+    const isBad = Math.random() < difficulty.heartsBadChance;
+    h.textContent = isBad ? '⚡' : (Math.random() < .5 ? '♥' : '✦');
+    if(isBad){ h.style.color = '#a9d2f5'; }
+    h.style.left = (5 + Math.random()*85) + '%';
+    const dur = (3.6 + Math.random()*2.2).toFixed(1);
+    h.style.animationDuration = dur + 's';
+    h.addEventListener('click', () => popHeart(h, isBad));
+    dropField.appendChild(h);
+    setTimeout(() => { if(h.parentNode) h.remove(); }, dur*1000 + 150);
+  }
+  function popHeart(h, isBad){
+    if(h.classList.contains('popped')) return;
+    h.classList.add('popped');
+    if(isBad){
+      loseLife();
+      return;
+    }
+    heartsCollected++;
+    heartCountEl.textContent = Math.min(heartsCollected, HEARTS_GOAL);
+    if(navigator.vibrate) navigator.vibrate(10);
+    if(heartsCollected >= HEARTS_GOAL){
+      stopHearts();
+      btnToLights.classList.remove('hidden');
+    }
+  }
+  function stopHearts(){
+    if(heartsInterval){ clearInterval(heartsInterval); heartsInterval = null; }
+  }
+  function startHearts(){
+    heartsCollected = 0;
+    heartCountEl.textContent = 0;
+    btnToLights.classList.add('hidden');
+    dropField.innerHTML = '';
+    stopHearts();
+    heartsInterval = setInterval(spawnHeart, 550);
+  }
+
+  btnToLights.addEventListener('click', () => goTo('game'));
+
+  // ================= NIVEL 2: luces / carta =================
+  const fragments = [
+    "Te conocí cuando entré en la etapa más dura de mi vida, y fue gracias a ti que logré aguantar todo lo que pasé durante mi servicio militar.",
+    "Te he prometido muchas cosas, y sé que no he podido cumplirlas todas.",
+    "Cada día intento mejorar y ser un mejor novio para ti.",
+    "Sé que pronto lograré demostrártelo: daré lo mejor de mí en mis clases de manejo, para liberar mi certificado y poder entrar a la policía.",
+    "Te amo.",
+    "Felices 10 meses, amorcito. Puede que sea un poco tarde, pero quería darte un lindo regalo."
+  ];
+  const positions = [
+    {left:18, top:14}, {left:74, top:10}, {left:30, top:46},
+    {left:70, top:50}, {left:48, top:26}, {left:50, top:76}
+  ];
+  const orbField = document.getElementById('orbField');
+  const countEl = document.getElementById('count');
+  const btnToPlat = document.getElementById('btn-to-plat');
+  let collected = 0;
+
+  fragments.forEach((text, i) => {
+    const orb = document.createElement('div');
+    orb.className = 'orb';
+    orb.style.left = positions[i].left + '%';
+    orb.style.top = positions[i].top + '%';
+    orb.style.setProperty('--fx', (Math.random()*20 - 10).toFixed(0) + 'px');
+    orb.style.setProperty('--fy', (Math.random()*20 - 10).toFixed(0) + 'px');
+    orb.style.setProperty('--fdur', (3.2 + Math.random()*2).toFixed(1) + 's');
+    orb.style.setProperty('--fdelay', (Math.random()*1.5).toFixed(1) + 's');
+    orb.addEventListener('click', () => collectOrb(orb, text));
+    orbField.appendChild(orb);
+  });
+
+  const overlay = document.getElementById('fragmentOverlay');
+  const fragmentText = document.getElementById('fragmentText');
+
+  function collectOrb(orb, text){
+    if(orb.classList.contains('collected')) return;
+    orb.classList.add('collected');
+    collected++;
+    countEl.textContent = collected;
+    if(navigator.vibrate) navigator.vibrate(12);
+    fragmentText.textContent = text;
+    overlay.classList.add('active');
+    if(collected === fragments.length){
+      btnToPlat.classList.remove('hidden');
+    }
+  }
+  document.getElementById('btn-close-fragment').addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+  btnToPlat.addEventListener('click', () => {
+    goTo('plat');
+    startPlatformer();
+  });
+
+  // ================= NIVEL 3: plataformas (con impulso) =================
+  const canvas = document.getElementById('platCanvas');
+  const ctx = canvas.getContext('2d');
+  const CW = canvas.width, CH = canvas.height;
+  const GRAVITY = 0.55, JUMP_V = -11.5, BOOST_JUMP_V = -13.5, MOVE_SPEED = 3.4, MAX_FALL = 12;
+
+  const platforms = [
+    {x:0,    y:430, w:260, h:50, start:true},
+    {x:330,  y:400, w:110, h:16},
+    {x:510,  y:360, w:100, h:16},
+    {x:690,  y:400, w:100, h:16},
+    {x:870,  y:340, w:90,  h:16},
+    {x:1040, y:300, w:90,  h:16},
+    {x:1210, y:360, w:110, h:16},
+    {x:1390, y:320, w:90,  h:16},
+    {x:1560, y:380, w:110, h:16},
+    {x:1740, y:400, w:300, h:50, powerup:true},
+    {x:2200, y:400, w:140, h:16},
+    {x:2410, y:400, w:320, h:50, goal:true}
+  ];
+  const WORLD_W = 2770;
+  const starDefs = platforms.slice(1,-1).map(p => ({ x:p.x + p.w/2 + (p.powerup ? -34 : 0), y:p.y - 26 }));
+  let stars = [];
+  const starCountEl = document.getElementById('starCount');
+  const btnToFotos = document.getElementById('btn-to-fotos');
+  const platToast = document.getElementById('platToast');
+
+  const player = { x:40, y:0, w:26, h:26, vx:0, vy:0, onGround:false };
+  let spawn = { x:40, y:430-26 };
+  let cameraX = 0;
+  let starsCollected = 0;
+  let goalReached = false;
+  let boosted = false;
+  let powerupCollected = false;
+  let facing = 1;
+  let platRAF = null;
+  let invulnerable = false;
+  let invulnTimer = null;
+  const padKeys = { left:false, right:false, jump:false };
+
+  const ENEMY_PLATFORM_IDX = [3, 6, 8];
+  let enemies = [];
+  function buildEnemies(){
+    const count = difficulty.enemyCount;
+    enemies = ENEMY_PLATFORM_IDX.slice(0, count).map(idx => {
+      const p = platforms[idx];
+      const minX = p.x + 16, maxX = p.x + p.w - 16;
+      return { minX, maxX, x:(minX+maxX)/2, y:p.y - 16, vx: 0.9 * difficulty.enemySpeed, dead:false };
+    });
+  }
+
+  const sealNormalImg = new Image();
+  const sealBoostImg = new Image();
+  sealNormalImg.src = 'images/foca-normal.png';
+  sealBoostImg.src = 'images/foca-impulso.png';
+  function fitBox(img, maxW, maxH){
+    if(!img.naturalWidth) return {w:maxW, h:maxH};
+    const s = Math.min(maxW/img.naturalWidth, maxH/img.naturalHeight);
+    return { w: img.naturalWidth*s, h: img.naturalHeight*s };
+  }
+
+  function bindPad(el, key){
+    const on = (e) => { e.preventDefault(); padKeys[key] = true; };
+    const off = (e) => { e.preventDefault(); padKeys[key] = false; };
+    el.addEventListener('pointerdown', on);
+    el.addEventListener('pointerup', off);
+    el.addEventListener('pointerleave', off);
+    el.addEventListener('pointercancel', off);
+  }
+  bindPad(document.getElementById('btn-left'), 'left');
+  bindPad(document.getElementById('btn-right'), 'right');
+  bindPad(document.getElementById('btn-jump'), 'jump');
+
+  let toastTimer = null;
+  function showToast(msg){
+    platToast.textContent = msg;
+    platToast.classList.add('show');
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => platToast.classList.remove('show'), 1700);
+  }
+
+  function resetPlatformer(){
+    player.x = spawn.x; player.y = spawn.y;
+    player.vx = 0; player.vy = 0; player.onGround = false;
+    cameraX = 0;
+    starsCollected = 0;
+    starCountEl.textContent = 0;
+    stars = starDefs.map(s => ({ x:s.x, y:s.y, collected:false }));
+    goalReached = false;
+    boosted = false;
+    powerupCollected = false;
+    facing = 1;
+    invulnerable = false;
+    if(invulnTimer){ clearTimeout(invulnTimer); invulnTimer = null; }
+    buildEnemies();
+    btnToFotos.classList.add('hidden');
+    platToast.classList.remove('show');
+  }
+
+  function startPlatformer(){
+    spawn = { x:40, y:430-26 };
+    resetPlatformer();
+    if(platRAF) cancelAnimationFrame(platRAF);
+    platLoop();
+  }
+  function stopPlatformer(){
+    if(platRAF){ cancelAnimationFrame(platRAF); platRAF = null; }
+  }
+
+  function platLoop(){
+    update();
+    render();
+    platRAF = requestAnimationFrame(platLoop);
+  }
+
+  function update(){
+    const prevFoot = player.y + player.h;
+
+    player.vx = (padKeys.right ? MOVE_SPEED : 0) - (padKeys.left ? MOVE_SPEED : 0);
+    player.x += player.vx;
+    player.x = Math.max(0, Math.min(WORLD_W - player.w, player.x));
+    if(padKeys.right) facing = 1;
+    if(padKeys.left) facing = -1;
+
+    if(padKeys.jump && player.onGround){
+      player.vy = boosted ? BOOST_JUMP_V : JUMP_V;
+      player.onGround = false;
+    }
+
+    player.vy += GRAVITY;
+    if(player.vy > MAX_FALL) player.vy = MAX_FALL;
+    player.y += player.vy;
+
+    player.onGround = false;
+    for(const p of platforms){
+      const withinX = player.x + player.w > p.x && player.x < p.x + p.w;
+      const footNow = player.y + player.h;
+      if(withinX && player.vy >= 0 && prevFoot <= p.y + 1 && footNow >= p.y && footNow <= p.y + p.h + player.vy + 1){
+        player.y = p.y - player.h;
+        player.vy = 0;
+        player.onGround = true;
+        spawn = { x: Math.max(p.x + 6, 0), y: p.y - player.h };
+        if(p.goal) goalReached = true;
+      }
+    }
+
+    if(player.y > CH + 60){
+      player.x = spawn.x; player.y = spawn.y; player.vx = 0; player.vy = 0;
+      loseLife();
+      showToast('💧 ¡Al agua! Perdiste una vida');
+      invulnerable = true;
+      if(invulnTimer) clearTimeout(invulnTimer);
+      invulnTimer = setTimeout(() => { invulnerable = false; }, 1300);
+    }
+
+    for(const e of enemies){
+      if(e.dead) continue;
+      e.x += e.vx;
+      if(e.x <= e.minX){ e.x = e.minX; e.vx = Math.abs(e.vx); }
+      if(e.x >= e.maxX){ e.x = e.maxX; e.vx = -Math.abs(e.vx); }
+    }
+
+    for(const e of enemies){
+      if(e.dead) continue;
+      const dx = Math.abs((player.x + player.w/2) - e.x);
+      const footY = player.y + player.h;
+      const dyFoot = footY - e.y;
+      if(dx < 20 && Math.abs(dyFoot) < 20){
+        if(player.vy > 0 && dyFoot < -1){
+          e.dead = true;
+          player.vy = -7;
+          if(navigator.vibrate) navigator.vibrate(15);
+          showToast('🐙 ¡Pulpito derrotado!');
+        } else if(!invulnerable){
+          loseLife();
+          showToast('🐙 ¡Un pulpito te atrapó!');
+          player.x = spawn.x; player.y = spawn.y; player.vx = 0; player.vy = 0;
+          invulnerable = true;
+          if(invulnTimer) clearTimeout(invulnTimer);
+          invulnTimer = setTimeout(() => { invulnerable = false; }, 1300);
+          break;
+        }
+      }
+    }
+
+    for(const s of stars){
+      if(s.collected) continue;
+      const dx = (player.x + player.w/2) - s.x;
+      const dy = (player.y + player.h/2) - s.y;
+      if(Math.sqrt(dx*dx + dy*dy) < 24){
+        s.collected = true;
+        starsCollected++;
+        starCountEl.textContent = starsCollected;
+        if(navigator.vibrate) navigator.vibrate(10);
+      }
+    }
+
+    if(!powerupCollected){
+      const pu = platforms.find(p => p.powerup);
+      const puX = pu.x + pu.w/2 - 34, puY = pu.y - 30;
+      const dx = (player.x + player.w/2) - puX;
+      const dy = (player.y + player.h/2) - puY;
+      if(Math.sqrt(dx*dx + dy*dy) < 26){
+        powerupCollected = true;
+        boosted = true;
+        if(navigator.vibrate) navigator.vibrate([15,40,15]);
+        showToast('💫 ¡Impulso conseguido! Saltas más alto');
+      }
+    }
+
+    if(goalReached){
+      btnToFotos.classList.remove('hidden');
+    }
+
+    cameraX = Math.max(0, Math.min(WORLD_W - CW, player.x + player.w/2 - CW/2));
+  }
+
+  function render(){
+    ctx.clearRect(0,0,CW,CH);
+    ctx.save();
+    ctx.translate(-cameraX, 0);
+
+    for(const p of platforms){
+      const grad = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.h);
+      if(p.goal || p.start || p.powerup){
+        grad.addColorStop(0, 'rgba(169,210,245,0.35)');
+        grad.addColorStop(1, 'rgba(61,111,180,0.35)');
+      } else {
+        grad.addColorStop(0, 'rgba(255,217,138,0.9)');
+        grad.addColorStop(1, 'rgba(255,240,194,0.7)');
+      }
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.roundRect(p.x, p.y, p.w, p.h, 8);
+      ctx.fill();
+    }
+
+    ctx.font = '20px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for(const s of stars){
+      if(s.collected) continue;
+      ctx.fillStyle = '#ffd98a';
+      ctx.fillText('✦', s.x, s.y);
+    }
+
+    if(!powerupCollected){
+      const pu = platforms.find(p => p.powerup);
+      const puX = pu.x + pu.w/2 - 34, puY = pu.y - 30;
+      const pulse = 1 + Math.sin(Date.now()/220)*0.12;
+      ctx.save();
+      ctx.translate(puX, puY);
+      ctx.scale(pulse, pulse);
+      ctx.font = '24px sans-serif';
+      ctx.fillStyle = '#dff0ff';
+      ctx.shadowColor = '#a9d2f5';
+      ctx.shadowBlur = 14;
+      ctx.fillText('💫', 0, 0);
+      ctx.restore();
+    }
+
+    ctx.font = '26px sans-serif';
+    for(const e of enemies){
+      if(e.dead) continue;
+      const bob = Math.sin((Date.now()+e.x)/260) * 3;
+      ctx.fillText('🐙', e.x, e.y + bob);
+    }
+
+    const goalP = platforms[platforms.length-1];
+    ctx.font = '30px sans-serif';
+    ctx.fillText('❤', goalP.x + goalP.w/2, goalP.y - 20);
+
+    const glowColor = boosted ? '#a9d2f5' : '#ffd98a';
+    const haloColor = boosted ? 'rgba(169,210,245,0.35)' : 'rgba(255,217,138,0.35)';
+    const cx = player.x + player.w/2, cy = player.y + player.h/2;
+    const halo = ctx.createRadialGradient(cx, cy, 2, cx, cy, player.w*1.3);
+    halo.addColorStop(0, haloColor);
+    halo.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(cx, cy, player.w*1.3, 0, Math.PI*2);
+    ctx.fill();
+
+    const sealImg = boosted ? sealBoostImg : sealNormalImg;
+    if(sealImg.complete && sealImg.naturalWidth){
+      const box = fitBox(sealImg, 54, 44);
+      const drawX = cx;
+      const drawY = player.y + player.h - box.h/2 + 4;
+      ctx.save();
+      ctx.translate(drawX, drawY);
+      if(facing === -1) ctx.scale(-1, 1);
+      ctx.drawImage(sealImg, -box.w/2, -box.h/2, box.w, box.h);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = glowColor;
+      ctx.beginPath();
+      ctx.arc(cx, cy, player.w*0.6, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  btnToFotos.addEventListener('click', () => {
+    stopPlatformer();
+    goTo('climb');
+    startClimb();
+  });
+
+  // ================= NIVEL 4: escalar =================
+  const climbCanvas = document.getElementById('climbCanvas');
+  const climbCtx = climbCanvas.getContext('2d');
+  const CLIMB_W = climbCanvas.width, CLIMB_H = climbCanvas.height;
+  const CLIMB_GRAVITY = 0.5, CLIMB_BOUNCE_V = -11.5, CLIMB_MOVE_SPEED = 3.0;
+  const CLIMB_PLATFORM_COUNT = 26;
+
+  let climbPlatforms = [];
+  let climbStars = [];
+  let climbPlayer = { x:0, y:0, w:24, h:24, vy:0 };
+  let climbSpawn = { x:0, y:0, platIdx:0 };
+  let climbCameraY = 0, climbInitialCameraY = 0;
+  let climbStarsCollected = 0;
+  let climbGoalReached = false;
+  let climbRAF = null;
+  const climbKeys = { left:false, right:false };
+
+  function generateClimbPlatforms(n){
+    const plats = [{ x:150, y:440, w:80, start:true }];
+    let curX = 150, curY = 440;
+    for(let i=1;i<n;i++){
+      curY -= 70 + Math.random()*30;
+      const dx = (Math.random()*2 - 1) * 100;
+      curX = Math.max(20, Math.min(CLIMB_W - 20 - 60, curX + dx));
+      plats.push({ x:curX, y:curY, w:60, goal:(i === n-1) });
+    }
+    return plats;
+  }
+
+  function bindClimbPad(el, key){
+    const on = (e) => { e.preventDefault(); climbKeys[key] = true; };
+    const off = (e) => { e.preventDefault(); climbKeys[key] = false; };
+    el.addEventListener('pointerdown', on);
+    el.addEventListener('pointerup', off);
+    el.addEventListener('pointerleave', off);
+    el.addEventListener('pointercancel', off);
+  }
+  bindClimbPad(document.getElementById('btn-climb-left'), 'left');
+  bindClimbPad(document.getElementById('btn-climb-right'), 'right');
+
+  const climbStarCountEl = document.getElementById('climbStarCount');
+  const btnToRace = document.getElementById('btn-to-race');
+
+  function startClimb(){
+    climbPlatforms = generateClimbPlatforms(CLIMB_PLATFORM_COUNT);
+    climbStars = climbPlatforms.slice(1, -1).map(p => ({ x:p.x + p.w/2, y:p.y - 22, collected:false }));
+    climbStarsCollected = 0;
+    climbStarCountEl.textContent = 0;
+    climbGoalReached = false;
+    btnToRace.classList.add('hidden');
+    const p0 = climbPlatforms[0];
+    climbPlayer = { x:p0.x + p0.w/2 - 12, y:p0.y - 24, w:24, h:24, vy:CLIMB_BOUNCE_V };
+    climbSpawn = { x:climbPlayer.x, y:p0.y - 24, platIdx:0 };
+    climbInitialCameraY = climbPlayer.y - CLIMB_H*0.6;
+    climbCameraY = climbInitialCameraY;
+    if(climbRAF) cancelAnimationFrame(climbRAF);
+    climbLoop();
+  }
+  function stopClimb(){
+    if(climbRAF){ cancelAnimationFrame(climbRAF); climbRAF = null; }
+  }
+
+  function climbLoop(){
+    climbUpdate();
+    climbRender();
+    climbRAF = requestAnimationFrame(climbLoop);
+  }
+
+  function climbUpdate(){
+    const prevFoot = climbPlayer.y + climbPlayer.h;
+    const vx = (climbKeys.right ? CLIMB_MOVE_SPEED : 0) - (climbKeys.left ? CLIMB_MOVE_SPEED : 0);
+    climbPlayer.x = Math.max(0, Math.min(CLIMB_W - climbPlayer.w, climbPlayer.x + vx));
+
+    climbPlayer.vy += CLIMB_GRAVITY;
+    climbPlayer.y += climbPlayer.vy;
+
+    for(let i=0;i<climbPlatforms.length;i++){
+      const p = climbPlatforms[i];
+      const withinX = climbPlayer.x + climbPlayer.w > p.x && climbPlayer.x < p.x + p.w;
+      const footNow = climbPlayer.y + climbPlayer.h;
+      if(withinX && climbPlayer.vy >= 0 && prevFoot <= p.y + 1 && footNow >= p.y && footNow <= p.y + 16 + climbPlayer.vy + 1){
+        climbPlayer.y = p.y - climbPlayer.h;
+        climbPlayer.vy = CLIMB_BOUNCE_V;
+        climbSpawn = { x: climbPlayer.x, y: climbPlayer.y, platIdx:i };
+        if(p.goal) climbGoalReached = true;
+      }
+    }
+
+    for(const s of climbStars){
+      if(s.collected) continue;
+      const dx = (climbPlayer.x + climbPlayer.w/2) - s.x;
+      const dy = (climbPlayer.y + climbPlayer.h/2) - s.y;
+      if(Math.sqrt(dx*dx + dy*dy) < 22){
+        s.collected = true;
+        climbStarsCollected++;
+        climbStarCountEl.textContent = climbStarsCollected;
+        if(navigator.vibrate) navigator.vibrate(10);
+      }
+    }
+
+    const targetCameraY = climbPlayer.y - CLIMB_H*0.6;
+    climbCameraY = Math.min(climbInitialCameraY, targetCameraY);
+
+    if(climbPlayer.y > climbCameraY + CLIMB_H + 60){
+      loseLife();
+      showToast('💧 ¡Resbalaste! Perdiste una vida');
+      climbPlayer.x = climbSpawn.x; climbPlayer.y = climbSpawn.y; climbPlayer.vy = CLIMB_BOUNCE_V;
+    }
+
+    if(climbGoalReached){
+      btnToRace.classList.remove('hidden');
+    }
+  }
+
+  function climbRender(){
+    climbCtx.clearRect(0,0,CLIMB_W,CLIMB_H);
+    climbCtx.save();
+    climbCtx.translate(0, -climbCameraY);
+
+    for(const p of climbPlatforms){
+      const grad = climbCtx.createLinearGradient(p.x, p.y, p.x, p.y+16);
+      if(p.start || p.goal){
+        grad.addColorStop(0, 'rgba(169,210,245,0.35)');
+        grad.addColorStop(1, 'rgba(61,111,180,0.35)');
+      } else {
+        grad.addColorStop(0, 'rgba(255,217,138,0.9)');
+        grad.addColorStop(1, 'rgba(255,240,194,0.7)');
+      }
+      climbCtx.fillStyle = grad;
+      climbCtx.beginPath();
+      climbCtx.roundRect(p.x, p.y, p.w, 16, 8);
+      climbCtx.fill();
+    }
+
+    climbCtx.font = '18px sans-serif';
+    climbCtx.textAlign = 'center';
+    climbCtx.textBaseline = 'middle';
+    for(const s of climbStars){
+      if(s.collected) continue;
+      climbCtx.fillStyle = '#ffd98a';
+      climbCtx.fillText('✦', s.x, s.y);
+    }
+
+    const goalP = climbPlatforms[climbPlatforms.length-1];
+    climbCtx.font = '28px sans-serif';
+    climbCtx.fillText('❤', goalP.x + goalP.w/2, goalP.y - 18);
+
+    const sealImg = sealNormalImg;
+    if(sealImg.complete && sealImg.naturalWidth){
+      const box = fitBox(sealImg, 40, 34);
+      climbCtx.save();
+      climbCtx.translate(climbPlayer.x+climbPlayer.w/2, climbPlayer.y+climbPlayer.h-box.h/2+4);
+      climbCtx.drawImage(sealImg, -box.w/2, -box.h/2, box.w, box.h);
+      climbCtx.restore();
+    }
+
+    climbCtx.restore();
+  }
+
+  btnToRace.addEventListener('click', () => {
+    stopClimb();
+    goTo('race');
+    startRace();
+  });
+
+  // ================= NIVEL 5: carreras =================
+  const raceCanvas = document.getElementById('raceCanvas');
+  const raceCtx = raceCanvas.getContext('2d');
+  const RACE_W = raceCanvas.width, RACE_H = raceCanvas.height;
+  const RACE_GRAVITY = 0.7, RACE_JUMP_V = -13;
+  const RACE_GROUND_Y = 400, RACE_PLAYER_X = 55, RACE_PLAYER_W = 26, RACE_PLAYER_H = 30;
+  const RACE_OBSTACLE_W = 24, RACE_OBSTACLE_H = 34;
+
+  let racePlayerY = RACE_GROUND_Y, raceVy = 0, raceOnGround = true;
+  let raceObstacles = [];
+  let raceSpawnInterval = null;
+  let raceRAF = null;
+  let racePassed = 0, raceGoal = 15;
+
+  const raceCountEl = document.getElementById('raceCount');
+  const raceGoalLabel = document.getElementById('raceGoalLabel');
+  const btnToDodge2 = document.getElementById('btn-to-dodge2');
+
+  function raceJump(){
+    if(raceOnGround){
+      raceVy = RACE_JUMP_V;
+      raceOnGround = false;
+      if(navigator.vibrate) navigator.vibrate(10);
+    }
+  }
+  document.getElementById('btn-race-jump').addEventListener('click', raceJump);
+  raceCanvas.addEventListener('pointerdown', raceJump);
+
+  function spawnRaceObstacle(){
+    raceObstacles.push({ x: RACE_W + 20, resolved:false });
+  }
+
+  function startRace(){
+    racePlayerY = RACE_GROUND_Y; raceVy = 0; raceOnGround = true;
+    raceObstacles = [];
+    racePassed = 0;
+    raceGoal = difficulty === DIFF.hard ? 20 : 15;
+    raceGoalLabel.textContent = raceGoal;
+    raceCountEl.textContent = 0;
+    btnToDodge2.classList.add('hidden');
+    if(raceSpawnInterval) clearInterval(raceSpawnInterval);
+    if(raceRAF) cancelAnimationFrame(raceRAF);
+    const spawnMs = difficulty === DIFF.hard ? 1100 : 1500;
+    raceSpawnInterval = setInterval(spawnRaceObstacle, spawnMs);
+    raceRAF = requestAnimationFrame(raceLoop);
+  }
+  function stopRace(){
+    if(raceSpawnInterval){ clearInterval(raceSpawnInterval); raceSpawnInterval = null; }
+    if(raceRAF){ cancelAnimationFrame(raceRAF); raceRAF = null; }
+  }
+
+  function raceLoop(){
+    raceUpdate();
+    raceRender();
+    if(racePassed < raceGoal){
+      raceRAF = requestAnimationFrame(raceLoop);
+    }
+  }
+
+  function raceUpdate(){
+    const scrollSpeed = difficulty === DIFF.hard ? 4.5 : 3.2;
+
+    raceVy += RACE_GRAVITY;
+    racePlayerY += raceVy;
+    if(racePlayerY >= RACE_GROUND_Y){ racePlayerY = RACE_GROUND_Y; raceVy = 0; raceOnGround = true; }
+
+    for(const o of raceObstacles){
+      o.x -= scrollSpeed;
+      const overlapX = (RACE_PLAYER_X + RACE_PLAYER_W/2) > (o.x - RACE_OBSTACLE_W/2) &&
+                        (RACE_PLAYER_X - RACE_PLAYER_W/2) < (o.x + RACE_OBSTACLE_W/2);
+      const obstacleTopY = RACE_GROUND_Y - RACE_OBSTACLE_H;
+      if(!o.resolved && overlapX && racePlayerY > obstacleTopY + 4){
+        o.resolved = true;
+        loseLife();
+        showToast('🌵 ¡Chocaste! Perdiste una vida');
+      }
+    }
+    const before = raceObstacles.length;
+    raceObstacles = raceObstacles.filter(o => o.x > -30);
+    racePassed += before - raceObstacles.length;
+    raceCountEl.textContent = Math.min(racePassed, raceGoal);
+    if(racePassed >= raceGoal){
+      btnToDodge2.classList.remove('hidden');
+    }
+  }
+
+  function raceRender(){
+    raceCtx.clearRect(0,0,RACE_W,RACE_H);
+    raceCtx.strokeStyle = 'rgba(169,210,245,.3)';
+    raceCtx.beginPath();
+    raceCtx.moveTo(0, RACE_GROUND_Y+2);
+    raceCtx.lineTo(RACE_W, RACE_GROUND_Y+2);
+    raceCtx.stroke();
+
+    raceCtx.font = '30px sans-serif';
+    raceCtx.textAlign = 'center';
+    raceCtx.textBaseline = 'alphabetic';
+    for(const o of raceObstacles){
+      raceCtx.fillText('🌵', o.x, RACE_GROUND_Y+4);
+    }
+
+    const sealImg = sealNormalImg;
+    if(sealImg.complete && sealImg.naturalWidth){
+      const box = fitBox(sealImg, 40, 34);
+      raceCtx.save();
+      raceCtx.translate(RACE_PLAYER_X, racePlayerY - box.h/2 + 4);
+      raceCtx.drawImage(sealImg, -box.w/2, -box.h/2, box.w, box.h);
+      raceCtx.restore();
+    }
+  }
+
+  btnToDodge2.addEventListener('click', () => {
+    stopRace();
+    goTo('dodge');
+    startDodge();
+  });
+
+  // ================= NIVEL 6: esquiva =================
+  const dodgeField = document.getElementById('dodgeField');
+  const dodgePlayerEl = document.getElementById('dodgePlayer');
+  const dodgeCountEl = document.getElementById('dodgeCount');
+  const dodgeGoalLabel = document.getElementById('dodgeGoalLabel');
+  const btnToFotos2 = document.getElementById('btn-to-fotos2');
+  const DODGE_LANES = [16.67, 50, 83.33]; // % positions
+  let DODGE_FIELD_H = 380;
+  let DODGE_HIT_TOP = 310, DODGE_HIT_BOTTOM = 366;
+  function measureDodgeField(){
+    const h = dodgeField.clientHeight || 380;
+    DODGE_FIELD_H = h;
+    DODGE_HIT_TOP = h * 0.815;
+    DODGE_HIT_BOTTOM = h * 0.963;
+  }
+  let dodgePlayerLane = 1;
+  let dodgeObstacles = [];
+  let dodgePassed = 0;
+  let dodgeGoal = 14;
+  let dodgeSpawnInterval = null;
+  let dodgeRAF = null;
+  let dodgeInvuln = false;
+
+  dodgePlayerEl.style.backgroundImage = "url('images/foca-normal.png')";
+
+  function updateDodgePlayerPos(){
+    dodgePlayerEl.style.left = DODGE_LANES[dodgePlayerLane] + '%';
+  }
+  document.getElementById('btn-dodge-left').addEventListener('click', () => {
+    dodgePlayerLane = Math.max(0, dodgePlayerLane - 1);
+    updateDodgePlayerPos();
+  });
+  document.getElementById('btn-dodge-right').addEventListener('click', () => {
+    dodgePlayerLane = Math.min(2, dodgePlayerLane + 1);
+    updateDodgePlayerPos();
+  });
+
+  function spawnDodgeObstacle(){
+    const lane = Math.floor(Math.random()*3);
+    const el = document.createElement('div');
+    el.className = 'dodge-obstacle';
+    el.textContent = '🐙';
+    el.style.left = DODGE_LANES[lane] + '%';
+    el.style.top = '-30px';
+    dodgeField.appendChild(el);
+    dodgeObstacles.push({ el, lane, y:-30, resolved:false });
+  }
+
+  function dodgeLoop(){
+    const speed = difficulty.dodgeSpeed;
+    for(const o of dodgeObstacles){
+      o.y += speed;
+      o.el.style.top = o.y + 'px';
+      if(!o.resolved && o.y >= DODGE_HIT_TOP && o.y <= DODGE_HIT_BOTTOM && o.lane === dodgePlayerLane){
+        o.resolved = true;
+        if(!dodgeInvuln){
+          loseLife();
+          dodgeInvuln = true;
+          setTimeout(() => { dodgeInvuln = false; }, 500);
+        }
+      }
+      if(o.y > DODGE_FIELD_H){
+        o.resolved = true;
+      }
+    }
+    const before = dodgeObstacles.length;
+    dodgeObstacles = dodgeObstacles.filter(o => {
+      if(o.y > DODGE_FIELD_H){
+        o.el.remove();
+        return false;
+      }
+      return true;
+    });
+    const removedCount = before - dodgeObstacles.length;
+    if(removedCount > 0){
+      dodgePassed += removedCount;
+      dodgeCountEl.textContent = Math.min(dodgePassed, dodgeGoal);
+      if(dodgePassed >= dodgeGoal){
+        finishDodge();
+      }
+    }
+    if(dodgePassed < dodgeGoal){
+      dodgeRAF = requestAnimationFrame(dodgeLoop);
+    }
+  }
+
+  function finishDodge(){
+    if(dodgeSpawnInterval){ clearInterval(dodgeSpawnInterval); dodgeSpawnInterval = null; }
+    dodgeObstacles.forEach(o => o.el.remove());
+    dodgeObstacles = [];
+    btnToFotos2.classList.remove('hidden');
+  }
+
+  function startDodge(){
+    measureDodgeField();
+    dodgePlayerLane = 1;
+    updateDodgePlayerPos();
+    dodgePassed = 0;
+    dodgeGoal = difficulty.dodgeGoal;
+    dodgeGoalLabel.textContent = dodgeGoal;
+    dodgeCountEl.textContent = 0;
+    dodgeField.querySelectorAll('.dodge-obstacle').forEach(el => el.remove());
+    dodgeObstacles = [];
+    dodgeInvuln = false;
+    btnToFotos2.classList.add('hidden');
+    if(dodgeSpawnInterval) clearInterval(dodgeSpawnInterval);
+    if(dodgeRAF) cancelAnimationFrame(dodgeRAF);
+    dodgeSpawnInterval = setInterval(spawnDodgeObstacle, difficulty.dodgeSpawnMs);
+    dodgeRAF = requestAnimationFrame(dodgeLoop);
+  }
+  function stopDodge(){
+    if(dodgeSpawnInterval){ clearInterval(dodgeSpawnInterval); dodgeSpawnInterval = null; }
+    if(dodgeRAF){ cancelAnimationFrame(dodgeRAF); dodgeRAF = null; }
+  }
+  btnToFotos2.addEventListener('click', () => {
+    stopDodge();
+    goTo('fotos');
+    startFotos();
+  });
+
+  // ================= NIVEL 5: fotos =================
+  const FOTOS_GOAL = 12;
+  let photosCollected = 0;
+  let fotosInterval = null;
+  const photoField = document.getElementById('photoField');
+  const photoCountEl = document.getElementById('photoCount');
+  const btnToMemoria2 = document.getElementById('btn-to-memoria2');
+
+  function spawnPhoto(){
+    const d = document.createElement('div');
+    const isDecoy = Math.random() < difficulty.fotosDecoyChance;
+    d.className = 'photo-drop' + (isDecoy ? ' decoy' : '');
+    d.style.left = (5 + Math.random()*82) + '%';
+    const dur = (4.2 + Math.random()*2.4).toFixed(1);
+    d.style.animationDuration = dur + 's';
+    if(isDecoy){
+      d.textContent = '🐙';
+    } else {
+      const src = memImages[Math.floor(Math.random()*memImages.length)];
+      d.style.backgroundImage = `url('${src}')`;
+    }
+    d.addEventListener('click', () => tapPhoto(d, isDecoy));
+    photoField.appendChild(d);
+    setTimeout(() => { if(d.parentNode) d.remove(); }, dur*1000 + 150);
+  }
+  function tapPhoto(d, isDecoy){
+    if(d.classList.contains('popped') || d.classList.contains('fizzled')) return;
+    if(isDecoy){
+      d.classList.add('fizzled');
+      loseLife();
+      return;
+    }
+    d.classList.add('popped');
+    photosCollected++;
+    photoCountEl.textContent = Math.min(photosCollected, FOTOS_GOAL);
+    if(navigator.vibrate) navigator.vibrate(10);
+    if(photosCollected >= FOTOS_GOAL){
+      stopFotos();
+      btnToMemoria2.classList.remove('hidden');
+    }
+  }
+  function stopFotos(){
+    if(fotosInterval){ clearInterval(fotosInterval); fotosInterval = null; }
+  }
+  function startFotos(){
+    photosCollected = 0;
+    photoCountEl.textContent = 0;
+    btnToMemoria2.classList.add('hidden');
+    photoField.innerHTML = '';
+    stopFotos();
+    fotosInterval = setInterval(spawnPhoto, 600);
+  }
+  btnToMemoria2.addEventListener('click', () => {
+    stopFotos();
+    goTo('memoria');
+    startMemoria();
+  });
+
+  // ================= NIVEL 6: memoria =================
+  const memImages = [
+    'images/foca-audifonos.jpg',
+    'images/tigre.jpg',
+    'images/morsa-bigote.jpg',
+    'images/gato-blanco-negro.jpg',
+    'images/hombre-audifonos.jpg',
+    'images/gato-borroso.jpg'
+  ];
+  const memoriaGrid = document.getElementById('memoriaGrid');
+  const pairCountEl = document.getElementById('pairCount');
+  const btnToMemes3 = document.getElementById('btn-to-memes3');
+  let memCards = [];
+  let flipped = [];
+  let pairsFound = 0;
+  let memLocked = false;
+
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]] = [arr[j],arr[i]];
+    }
+    return arr;
+  }
+
+  function startMemoria(){
+    memoriaGrid.innerHTML = '';
+    pairsFound = 0;
+    flipped = [];
+    memLocked = false;
+    pairCountEl.textContent = 0;
+    btnToMemes3.classList.add('hidden');
+
+    const deck = shuffle([...memImages, ...memImages].map((src, i) => ({ src, uid:i })));
+    memCards = deck.map((card) => {
+      const el = document.createElement('div');
+      el.className = 'mem-card';
+      el.innerHTML = `
+        <div class="mem-card-inner">
+          <div class="mem-face mem-front">✦</div>
+          <div class="mem-face mem-back"><img src="${card.src}" alt=""></div>
+        </div>`;
+      el.addEventListener('click', () => flipCard(el, card.src));
+      memoriaGrid.appendChild(el);
+      return { el, src:card.src, matched:false };
+    });
+  }
+
+  function flipCard(el, src){
+    if(memLocked) return;
+    if(el.classList.contains('flipped') || el.classList.contains('matched')) return;
+    el.classList.add('flipped');
+    flipped.push({ el, src });
+
+    if(flipped.length === 2){
+      memLocked = true;
+      const [a,b] = flipped;
+      if(a.src === b.src){
+        a.el.classList.add('matched');
+        b.el.classList.add('matched');
+        pairsFound++;
+        pairCountEl.textContent = pairsFound;
+        if(navigator.vibrate) navigator.vibrate([10,30,10]);
+        flipped = [];
+        memLocked = false;
+        if(pairsFound === memImages.length){
+          btnToMemes3.classList.remove('hidden');
+        }
+      } else {
+        setTimeout(() => {
+          a.el.classList.remove('flipped');
+          b.el.classList.remove('flipped');
+          flipped = [];
+          memLocked = false;
+        }, 700);
+      }
+    }
+  }
+
+  btnToMemes3.addEventListener('click', () => {
+    goTo('const');
+    startConstellation();
+  });
+
+  // ================= NIVEL 7: constelación =================
+  const CONST_POINTS = [
+    [132.5,77.9],[141.6,54.5],[185.4,30.0],[235.1,57.0],[235.1,114.2],
+    [185.4,167.0],[141.6,210.4],[132.5,230.0],[123.5,210.4],[79.7,167.0],
+    [30.0,114.2],[30.0,57.0],[79.7,30.0],[123.5,54.5]
+  ];
+  const constDots = document.getElementById('constDots');
+  const constPath = document.getElementById('constPath');
+  const heartFill = document.getElementById('heartFill');
+  const btnToMemes4 = document.getElementById('btn-to-memes4');
+  let constNext = 0;
+  let constDotEls = [];
+
+  function heartPathD(){
+    return 'M ' + CONST_POINTS.map(p => p.join(',')).join(' L ') + ' Z';
+  }
+
+  function startConstellation(){
+    constDots.innerHTML = '';
+    constPath.setAttribute('d','');
+    heartFill.setAttribute('d', heartPathD());
+    heartFill.style.opacity = 0;
+    btnToMemes4.classList.add('hidden');
+    constNext = 0;
+    constDotEls = CONST_POINTS.map(([x,y], i) => {
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 6);
+      c.setAttribute('fill', 'rgba(169,210,245,0.45)');
+      c.classList.add('const-dot');
+      c.addEventListener('click', () => tapConstDot(i));
+      constDots.appendChild(c);
+      return c;
+    });
+    updateConstHighlight();
+  }
+
+  function updateConstHighlight(){
+    constDotEls.forEach((el,i) => {
+      el.classList.toggle('next', i === constNext);
+      if(i !== constNext) el.classList.remove('next');
+    });
+  }
+
+  function tapConstDot(i){
+    if(i !== constNext) return;
+    const el = constDotEls[i];
+    el.classList.remove('next');
+    el.classList.add('done');
+    el.setAttribute('fill', 'var(--gold)');
+    const pathPts = CONST_POINTS.slice(0, i+1).map(p => p.join(',')).join(' L ');
+    constPath.setAttribute('d', 'M ' + pathPts);
+    if(navigator.vibrate) navigator.vibrate(10);
+    constNext++;
+    if(constNext >= CONST_POINTS.length){
+      const closedPts = CONST_POINTS.map(p => p.join(',')).join(' L ') + ' Z';
+      constPath.setAttribute('d', 'M ' + closedPts);
+      heartFill.style.opacity = 1;
+      if(navigator.vibrate) navigator.vibrate([15,40,15,40,15]);
+      btnToMemes4.classList.remove('hidden');
+    } else {
+      updateConstHighlight();
+    }
+  }
+
+  btnToMemes4.addEventListener('click', () => {
+    goTo('memes');
+    resetMemes();
+  });
+
+  // ================= NIVEL 8: memes =================
+  const memes = [
+    { src:memImages[0], caption:"Foca gordita toda bonita" },
+    { src:memImages[1], caption:"Ya no hay buenos juegos en la playstore" },
+    { src:memImages[2], caption:"Oye preciosa, ¿acaso eres panadería? Porque traes ese baguette" },
+    { src:memImages[3], caption:"Como dos gotas de petróleo" },
+    { src:memImages[4], caption:"Mi reacción ante tal papeada" },
+    { src:memImages[5], caption:"Un hola mi amor" }
+  ];
+  let memeIndex = 0;
+  const memeImg = document.getElementById('memeImg');
+  const memeCaption = document.getElementById('memeCaption');
+  const memeDots = document.getElementById('memeDots');
+  const btnMemeNext = document.getElementById('btn-meme-next');
+
+  memes.forEach(() => memeDots.appendChild(document.createElement('span')));
+
+  function renderMeme(){
+    memeImg.src = memes[memeIndex].src;
+    memeCaption.textContent = memes[memeIndex].caption;
+    [...memeDots.children].forEach((d,i) => d.classList.toggle('active', i === memeIndex));
+    btnMemeNext.textContent = memeIndex === memes.length - 1 ? 'Continuar a la carta' : 'Siguiente';
+  }
+  function resetMemes(){ memeIndex = 0; renderMeme(); }
+
+  btnMemeNext.addEventListener('click', () => {
+    if(memeIndex < memes.length - 1){
+      memeIndex++;
+      renderMeme();
+    } else {
+      buildLetter();
+      goTo('letter');
+    }
+  });
+
+  // ================= carta final =================
+  const letterBody = document.getElementById('letterBody');
+  let letterBuilt = false;
+  function buildLetter(){
+    if(letterBuilt) return;
+    fragments.forEach(t => {
+      const p = document.createElement('p');
+      p.textContent = t;
+      letterBody.appendChild(p);
+    });
+    letterBuilt = true;
+    spawnConfetti();
+  }
+
+  function spawnConfetti(){
+    const symbols = ['✦','✧','♥','⋆'];
+    const app = document.getElementById('app');
+    for(let i=0;i<22;i++){
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      c.style.left = Math.random()*100 + '%';
+      c.style.animationDuration = (2.5 + Math.random()*2).toFixed(1) + 's';
+      c.style.animationDelay = (Math.random()*1.2).toFixed(1) + 's';
+      c.style.opacity = (0.5 + Math.random()*0.5).toFixed(2);
+      app.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }
+  }
+
+  // ================= reiniciar =================
+  document.getElementById('btn-replay').addEventListener('click', () => {
+    document.querySelectorAll('.orb').forEach(o => o.classList.remove('collected'));
+    collected = 0;
+    countEl.textContent = 0;
+    btnToPlat.classList.add('hidden');
+    stopPlatformer();
+    stopClimb();
+    stopRace();
+    stopDodge();
+    stopFotos();
+    constNext = 0;
+    memeIndex = 0;
+    letterBuilt = false;
+    letterBody.innerHTML = '';
+    livesHud.classList.remove('show');
+    goTo('title');
+  });
+</script>
+</body>
+</html>
